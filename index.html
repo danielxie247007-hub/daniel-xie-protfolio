@@ -79,8 +79,9 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 }
 .hero{grid-column:1/span 2;order:1}
 .projects{grid-column:1/span 2;order:2}
-.tools{grid-column:1;order:3}
-.achievements{grid-column:2;order:4}
+.wshow{grid-column:1/span 2;order:3}
+.tools{grid-column:1;order:4}
+.achievements{grid-column:2;order:5}
 
 /* ---------- ABOUT ME (HERO) ---------- */
 .hero{
@@ -160,24 +161,14 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .ach .a-k{font-size:9rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .ach .a-v{font-size:15rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin-top:4rem}
 
-/* ---------- WORKS VIEW (My Edits) ---------- */
-.works{position:fixed;inset:0;z-index:200;background:var(--bg);color:var(--ink);overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}
-body.works-open{overflow:hidden}
-body.works-open .works{display:block}
-.works-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16rem;padding:18rem 32rem;background:#F4F3EF;border-bottom:1rem solid var(--line)}
-.works-top .back{display:inline-flex;align-items:center;gap:8rem;font-size:11rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:color .3s ease}
-.works-top .back:hover{color:var(--accent)}
-.works-top .back .arr{width:15rem;height:15rem}
-.works-top .w-title{font-size:11rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-
-.works-head{padding:64rem 32rem 0}
-.w-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6rem 14rem;border-radius:999rem;margin-bottom:20rem}
-.works-head h1{font-size:46rem;font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--ink);text-transform:uppercase}
-.works-head h1 .r{color:var(--accent)}
-.works-head p{margin-top:18rem;font-size:15rem;font-weight:400;line-height:1.6;color:var(--muted);max-width:520rem}
-
-.w-section{margin-top:56rem;padding:0 32rem;max-width:960rem}
-.w-label{display:flex;align-items:center;gap:12rem;margin-bottom:20rem;font-size:15rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+/* ---------- HOME VIDEO SHOWCASE (My Edits on the homepage) ---------- */
+.wshow{background:var(--card);padding:40rem 40rem 48rem}
+.ws-head .w-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6rem 14rem;border-radius:999rem;margin-bottom:16rem}
+.ws-head h2{font-size:36rem;font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--ink);text-transform:uppercase}
+.ws-head h2 .r{color:var(--accent)}
+.ws-head p{margin-top:12rem;font-size:14.5rem;font-weight:400;line-height:1.6;color:var(--muted)}
+.ws-group{margin-top:40rem}
+.w-label{display:flex;align-items:center;gap:12rem;margin-bottom:18rem;font-size:14rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
 .w-num{font-size:11rem;font-weight:700;color:var(--accent)}
 .w-label::after{content:"";flex:1;height:1rem;background:var(--line)}
 
@@ -197,33 +188,22 @@ body.works-open .works{display:block}
 .video-card .fs-btn:hover{background:var(--accent)}
 .video-card .fs-btn svg{width:16rem;height:16rem}
 
-.w-marquee{overflow:hidden;border-top:1rem solid var(--line);border-bottom:1rem solid var(--line);margin-top:64rem;padding:18rem 0}
 .marquee-track{display:flex;width:max-content;animation:marqueeProjects 28s linear infinite}
 .marquee-track:hover{animation-play-state:paused}
 .marquee-track .mq{display:inline-flex;align-items:center;gap:14rem;padding:0 28rem;white-space:nowrap;font-size:15rem;font-weight:500;letter-spacing:.04em;color:var(--muted)}
 .marquee-track .mq i{width:7rem;height:7rem;background:var(--accent);flex:none}
 @keyframes marqueeProjects{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
-.w-footer{padding:44rem 32rem 30rem;max-width:960rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24rem;flex-wrap:wrap}
-.w-footer p{font-size:13rem;line-height:1.6;color:var(--muted);max-width:420rem}
-.channel-row{display:flex;gap:10rem;flex-wrap:wrap;margin-bottom:14rem}
-.ch-btn{display:inline-flex;align-items:center;gap:8rem;height:48rem;padding:0 24rem;border-radius:999rem;font-size:13rem;font-weight:700;letter-spacing:.02em;transition:transform .3s ease, box-shadow .3s ease}
-.ch-btn:hover{transform:translateY(-2rem)}
-.ch-btn .arr{width:15rem;height:15rem}
+/* Big channel CTAs (each ~ half of the card width on desktop) */
+.channel-row{display:flex;gap:12rem}
+.ch-btn{flex:1 1 0;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:10rem;height:64rem;padding:0 22rem;border-radius:999rem;font-size:16rem;font-weight:800;letter-spacing:-.01em;transition:transform .3s ease, box-shadow .3s ease}
+.ch-btn .arr{width:17rem;height:17rem;flex:none;transition:transform .3s ease}
+.ch-btn:hover{transform:translateY(-3rem)}
+.ch-btn:hover .arr{transform:translate(3rem,-2rem)}
 .ch-red{background:var(--accent);color:#fff}
-.ch-red:hover{box-shadow:0 8rem 22rem rgba(232,93,42,.3)}
+.ch-red:hover{box-shadow:0 10rem 26rem rgba(232,93,42,.35)}
 .ch-ig{background:var(--ink);color:#fff}
-.ch-ig:hover{box-shadow:0 8rem 22rem rgba(23,23,23,.25)}
-
-/* My edits button (projects card) */
-.myedits{display:flex;align-items:center;gap:14rem;margin-bottom:16rem;padding:20rem 16rem;border:1rem solid var(--line);border-radius:12rem;background:var(--card);transition:transform .3s ease, border-color .3s ease;max-width:620rem}
-.myedits:hover{transform:translateY(-2rem);border-color:var(--accent)}
-.myedits .me-icon{width:48rem;height:48rem;border-radius:12rem;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
-.myedits .me-icon svg{width:20rem;height:20rem;margin-left:3rem}
-.myedits .me-body{flex:1;min-width:0}
-.myedits .me-txt{display:block;font-size:20rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
-.myedits .me-sub{display:block;font-size:9.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3rem}
-.myedits .arr{width:18rem;height:18rem;color:var(--muted);margin-left:auto;flex:none}
+.ch-ig:hover{box-shadow:0 10rem 26rem rgba(23,23,23,.28)}
 
 .btn.dim{opacity:.5;cursor:default}
 .btn.dim:hover{background:none;color:var(--ink);border-color:var(--line);transform:none}
@@ -257,6 +237,13 @@ html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04
 html.entrance-run .projects{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .12s backwards}
 html.entrance-run .tools{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .18s backwards}
 html.entrance-run .achievements{animation:panel-settle .68s cubic-bezier(.16,1,.3,1) .24s backwards}
+html.entrance-run .wshow{animation:panel-settle .8s cubic-bezier(.16,1,.3,1) .16s backwards}
+html.entrance-run .wshow .ws-head .w-badge{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .32s backwards}
+html.entrance-run .wshow .ws-head h2{animation:type-unmask .66s cubic-bezier(.22,1,.36,1) .38s backwards}
+html.entrance-run .wshow .ws-head p{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .5s backwards}
+html.entrance-run .wshow .ws-group{animation:content-rise .52s cubic-bezier(.16,1,.3,1) .58s backwards}
+html.entrance-run .wshow .ws-group:nth-of-type(2){animation-delay:.66s}
+html.entrance-run .wshow .ws-group:nth-of-type(3){animation-delay:.74s}
 
 html.entrance-run .hero .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .22s backwards}
 html.entrance-run .hero h1{animation:type-unmask .78s cubic-bezier(.22,1,.36,1) .28s backwards}
@@ -292,12 +279,11 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .topbar .tb-l{font-size:10.5rem}
   .topbar .tb-r{font-size:8.5rem;gap:8rem;flex-wrap:wrap}
   .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:16rem;padding-bottom:60rem}
-  .hero,.projects,.tools,.achievements{grid-column:1}
+  .hero,.projects,.tools,.achievements,.wshow{grid-column:1}
   .hero{padding:30rem 24rem 28rem}
   .hero h1{font-size:32rem}
   .hero .body{font-size:13.5rem}
   .hero .body-2{font-size:12.5rem}
-  .myedits{max-width:none}
 
   html.motion-pending .card{opacity:1;visibility:visible}
   html.motion-pending .hero{opacity:0;visibility:hidden}
@@ -305,13 +291,11 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 
   .video-grid{grid-template-columns:1fr}
   .video-card .fs-btn{opacity:.9}
-  .works-top{padding:14rem 20rem}
-  .works-head{padding:44rem 20rem 0}
-  .works-head h1{font-size:32rem}
-  .w-section{padding:0 20rem}
-  .w-footer{padding:32rem 20rem 24rem}
-  .w-footer .channel-row{width:100%}
-  .w-footer .ch-btn{flex:1;justify-content:center}
+  .wshow{padding:28rem 22rem 34rem}
+  .ws-head h2{font-size:26rem}
+  .ws-group{margin-top:32rem}
+  .channel-row{flex-direction:column}
+  .ch-btn{flex:none;width:100%;height:58rem}
   .footer-inner{width:375rem;padding:36rem 20rem 30rem}
   .contact-links{gap:12rem}
   .contact-links a{font-size:15rem}
@@ -341,7 +325,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
     <div class="tags"><span>Video Editing</span><span>Film</span><span>Game Making</span><span>Minecraft</span></div>
   </section>
 
-
   <!-- 06 / EDITING TOOLS -->
   <section class="card tools" aria-label="Editing tools">
     <div class="k">06 / Editing Tools</div>
@@ -370,14 +353,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   <!-- 03 / PROJECTS -->
   <section class="card projects" id="projects" aria-label="Selected projects">
     <div class="k">02 / Selected Projects</div>
-    <a class="myedits" href="#works" data-open="works" aria-label="Open My edits video page">
-      <span class="me-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-      <span class="me-body">
-        <span class="me-txt">My edits</span>
-        <span class="me-sub">6 video projects</span>
-      </span>
-      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
     <div class="proj dim"><span class="proj-num">01</span><span class="proj-body"><b>From 1 to Infinity Trailer Edit</b><span>Film / Editing</span></span></div>
     <a class="proj" href="#games" aria-label="Cave Zero — Game / Construct">
       <span class="proj-num">02</span>
@@ -413,6 +388,87 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
         <span class="sz">6.5 MB</span>
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6"/></svg>
       </a>
+    </div>
+  </section>
+
+  <!-- 05 / MY EDITS — SHOWN DIRECTLY ON THE HOMEPAGE -->
+  <section class="card wshow" aria-label="My edits — selected video work">
+    <div class="ws-head">
+      <span class="w-badge">My edits</span>
+      <h2>Selected video <span class="r">edits</span></h2>
+      <p>Trailers, fan edits &amp; projects I've cut — tap a clip to play.</p>
+    </div>
+
+    <div class="ws-group">
+      <div class="w-label"><span class="w-num">01</span> Marvel</div>
+      <div class="video-grid">
+        <figure class="video-card">
+          <video preload="metadata" playsinline aria-label="Avengers edit">
+            <source src="videos/marvel-01-avengers.mp4" type="video/mp4">
+            <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/marvel-01-avengers.mp4" type="video/mp4">
+          </video>
+          <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+          <button class="play" type="button" aria-label="Play Avengers edit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <figcaption class="v-info"><b>Avengers</b><span>Marvel · Fan edit</span></figcaption>
+        </figure>
+        <figure class="video-card">
+          <video preload="metadata" playsinline aria-label="Deadpool edit">
+            <source src="videos/marvel-02-deadpool.mp4" type="video/mp4">
+            <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/marvel-02-deadpool.mp4" type="video/mp4">
+          </video>
+          <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+          <button class="play" type="button" aria-label="Play Deadpool edit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <figcaption class="v-info"><b>Deadpool</b><span>Marvel · Fan edit</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="ws-group">
+      <div class="w-label"><span class="w-num">02</span> Spider-Man</div>
+      <div class="video-grid">
+        <figure class="video-card">
+          <video preload="metadata" playsinline aria-label="Not Like Us Spider-Man edit">
+            <source src="videos/spiderman-03-not-like-us.mp4" type="video/mp4">
+            <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/spiderman-03-not-like-us.mp4" type="video/mp4">
+          </video>
+          <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+          <button class="play" type="button" aria-label="Play Not Like Us"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <figcaption class="v-info"><b>Not Like Us</b><span>Spider-Man · Edit</span></figcaption>
+        </figure>
+        <figure class="video-card">
+          <video preload="metadata" playsinline aria-label="June 22 Spider-Man edit">
+            <source src="videos/spiderman-04-june-22.mp4" type="video/mp4">
+            <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/spiderman-04-june-22.mp4" type="video/mp4">
+          </video>
+          <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+          <button class="play" type="button" aria-label="Play June 22"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <figcaption class="v-info"><b>June 22</b><span>Spider-Man · Edit</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="ws-group">
+      <div class="w-label"><span class="w-num">03</span> Cinematic Trailer</div>
+      <div class="video-grid">
+        <figure class="video-card">
+          <video preload="metadata" playsinline aria-label="Boonie Bears trailer">
+            <source src="videos/trailer-05-boonie-bears.mp4" type="video/mp4">
+            <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/trailer-05-boonie-bears.mp4" type="video/mp4">
+          </video>
+          <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+          <button class="play" type="button" aria-label="Play Boonie Bears trailer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <figcaption class="v-info"><b>Boonie Bears</b><span>Cinematic · Trailer</span></figcaption>
+        </figure>
+        <figure class="video-card">
+          <video preload="metadata" playsinline aria-label="From 1 to Infinity trailer">
+            <source src="videos/trailer-06-from-1-to-infinity.mp4" type="video/mp4">
+            <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/trailer-06-from-1-to-infinity.mp4" type="video/mp4">
+          </video>
+          <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+          <button class="play" type="button" aria-label="Play From 1 to Infinity trailer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+          <figcaption class="v-info"><b>From 1 to Infinity</b><span>Cinematic · Trailer</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -457,128 +513,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   </div>
 </footer>
 
-<!-- WORKS VIEW -->
-<div class="works" id="works" aria-label="My edits">
-  <header class="works-top">
-    <button class="back" id="backBtn" type="button" aria-label="Back to home">
-      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
-      Back
-    </button>
-    <span class="w-title">Daniel Xie — My Edits</span>
-  </header>
-
-  <div class="works-head">
-    <span class="w-badge">My edits</span>
-    <h1>Selected video<br><span class="r">edits</span></h1>
-    <p>Trailers, fan edits &amp; projects I've cut — tap a clip to play.</p>
-  </div>
-
-  <section class="w-section">
-    <div class="w-label"><span class="w-num">01</span> Marvel</div>
-    <div class="video-grid">
-      <figure class="video-card">
-        <video preload="metadata" playsinline aria-label="Avengers edit">
-          <source src="videos/marvel-01-avengers.mp4" type="video/mp4">
-          <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/marvel-01-avengers.mp4" type="video/mp4">
-        </video>
-        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
-        <button class="play" type="button" aria-label="Play Avengers edit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
-        <figcaption class="v-info"><b>Avengers</b><span>Marvel · Fan edit</span></figcaption>
-      </figure>
-      <figure class="video-card">
-        <video preload="metadata" playsinline aria-label="Deadpool edit">
-          <source src="videos/marvel-02-deadpool.mp4" type="video/mp4">
-          <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/marvel-02-deadpool.mp4" type="video/mp4">
-        </video>
-        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
-        <button class="play" type="button" aria-label="Play Deadpool edit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
-        <figcaption class="v-info"><b>Deadpool</b><span>Marvel · Fan edit</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="w-section">
-    <div class="w-label"><span class="w-num">02</span> Spider-Man</div>
-    <div class="video-grid">
-      <figure class="video-card">
-        <video preload="metadata" playsinline aria-label="Not Like Us Spider-Man edit">
-          <source src="videos/spiderman-03-not-like-us.mp4" type="video/mp4">
-          <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/spiderman-03-not-like-us.mp4" type="video/mp4">
-        </video>
-        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
-        <button class="play" type="button" aria-label="Play Not Like Us"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
-        <figcaption class="v-info"><b>Not Like Us</b><span>Spider-Man · Edit</span></figcaption>
-      </figure>
-      <figure class="video-card">
-        <video preload="metadata" playsinline aria-label="June 22 Spider-Man edit">
-          <source src="videos/spiderman-04-june-22.mp4" type="video/mp4">
-          <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/spiderman-04-june-22.mp4" type="video/mp4">
-        </video>
-        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
-        <button class="play" type="button" aria-label="Play June 22"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
-        <figcaption class="v-info"><b>June 22</b><span>Spider-Man · Edit</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="w-section">
-    <div class="w-label"><span class="w-num">03</span> Cinematic Trailer</div>
-    <div class="video-grid">
-      <figure class="video-card">
-        <video preload="metadata" playsinline aria-label="Boonie Bears trailer">
-          <source src="videos/trailer-05-boonie-bears.mp4" type="video/mp4">
-          <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/trailer-05-boonie-bears.mp4" type="video/mp4">
-        </video>
-        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
-        <button class="play" type="button" aria-label="Play Boonie Bears trailer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
-        <figcaption class="v-info"><b>Boonie Bears</b><span>Cinematic · Trailer</span></figcaption>
-      </figure>
-      <figure class="video-card">
-        <video preload="metadata" playsinline aria-label="From 1 to Infinity trailer">
-          <source src="videos/trailer-06-from-1-to-infinity.mp4" type="video/mp4">
-          <source src="https://vs7hfg4h9kgwucg0.public.blob.vercel-storage.com/trailer-06-from-1-to-infinity.mp4" type="video/mp4">
-        </video>
-        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
-        <button class="play" type="button" aria-label="Play From 1 to Infinity trailer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
-        <figcaption class="v-info"><b>From 1 to Infinity</b><span>Cinematic · Trailer</span></figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <div class="w-marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="mq"><i></i>CapCut · 剪映</span>
-      <span class="mq"><i></i>Final Cut Pro</span>
-      <span class="mq"><i></i>DaVinci Resolve</span>
-      <span class="mq"><i></i>Premiere Pro</span>
-      <span class="mq"><i></i>After Effects</span>
-      <span class="mq"><i></i>Video Editing</span>
-      <span class="mq"><i></i>Filmmaking</span>
-      <span class="mq"><i></i>Minecraft</span>
-      <span class="mq"><i></i>CapCut · 剪映</span>
-      <span class="mq"><i></i>Final Cut Pro</span>
-      <span class="mq"><i></i>DaVinci Resolve</span>
-      <span class="mq"><i></i>Premiere Pro</span>
-      <span class="mq"><i></i>After Effects</span>
-      <span class="mq"><i></i>Video Editing</span>
-      <span class="mq"><i></i>Filmmaking</span>
-      <span class="mq"><i></i>Minecraft</span>
-    </div>
-  </div>
-
-  <div class="w-footer">
-    <p>More edits and behind-the-scenes live on my channels. Follow along for new cuts.</p>
-    <div class="channel-row">
-      <a class="ch-btn ch-red" href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">RedNote channel
-        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-      </a>
-      <a class="ch-btn ch-ig" href="https://www.instagram.com/daniel_xiemn/" target="_blank" rel="noopener noreferrer">Instagram channel
-        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-      </a>
-    </div>
-  </div>
-</div>
-
 <script>
 (function(){
   var root = document.documentElement;
@@ -604,16 +538,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 </script>
 <script>
 (function(){
-  var works = document.getElementById('works');
-  function openWorks(){ document.body.classList.add('works-open'); if(works) works.scrollTop = 0; }
-  function closeWorks(){ document.body.classList.remove('works-open'); }
-  document.querySelectorAll('[data-open="works"]').forEach(function(el){
-    el.addEventListener('click', function(e){ e.preventDefault(); openWorks(); });
-  });
-  var backBtn = document.getElementById('backBtn');
-  if(backBtn){ backBtn.addEventListener('click', closeWorks); }
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeWorks(); });
-
   var cave = document.querySelector('a[href="#games"]');
   if(cave){ cave.addEventListener('click', function(e){ var g = document.getElementById('games'); if(g && g.scrollIntoView){ e.preventDefault(); g.scrollIntoView({behavior:'smooth', block:'nearest'}); } }); }
 
@@ -665,8 +589,10 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       e.stopPropagation();
       var v = btn.closest('.video-card').querySelector('video');
       if(!v) return;
-      if(v.requestFullscreen){ v.requestFullscreen(); }
+      var pr = null;
+      if(v.requestFullscreen){ pr = v.requestFullscreen(); }
       else if(v.webkitRequestFullscreen){ v.webkitRequestFullscreen(); }
+      if(pr && pr.catch){ pr.catch(function(){}); }
     });
   });
 })();
