@@ -65,8 +65,8 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .stage{
   width:1374rem;margin:0 auto;
   display:grid;grid-template-columns:1fr 1fr;
-  column-gap:18rem;row-gap:32rem;
-  padding-bottom:120rem;
+  column-gap:18rem;row-gap:40rem;
+  padding-bottom:170rem;
 }
 .card{
   border-radius:14rem;border:1rem solid var(--line);
@@ -137,14 +137,14 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .btn-row{display:flex;gap:7rem;margin:6rem 0 16rem}
 .btn{flex:1;height:36rem;display:inline-flex;align-items:center;justify-content:center;font-size:10rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border:1rem solid var(--line);border-radius:999rem;transition:background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease}
 .btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2rem)}
-.games{border:1rem solid var(--line);border-radius:12rem;padding:14rem;margin-top:18rem;background:var(--card2)}
+.games{border:1rem solid var(--line);border-radius:12rem;padding:16rem;margin-top:30rem;background:var(--card2)}
 .games-head{display:flex;align-items:center;gap:12rem;margin-bottom:14rem}
 .games-head .gp{width:40rem;height:40rem;border-radius:10rem;background:rgba(232,93,42,.12);display:flex;align-items:center;justify-content:center;color:var(--accent);flex:none}
 .games-head .gp svg{width:22rem;height:22rem}
 .games-head .g-k{display:block;font-size:8.5rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem}
 .games-head b{display:block;font-size:16rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
 .games-head .g-sub{display:block;font-size:10.5rem;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:4rem}
-.dl{display:flex;align-items:center;justify-content:space-between;gap:10rem;height:38rem;padding:0 14rem;border-radius:999rem;background:var(--accent);color:#fff;font-size:11rem;font-weight:700;letter-spacing:.02em;transition:transform .3s ease, box-shadow .3s ease}
+.dl{display:flex;align-items:center;justify-content:space-between;gap:10rem;height:38rem;width:50%;max-width:680rem;min-width:0;padding:0 14rem;border-radius:999rem;background:var(--accent);color:#fff;font-size:11rem;font-weight:700;letter-spacing:.02em;transition:transform .3s ease, box-shadow .3s ease}
 .dl:hover{transform:translateY(-2rem);box-shadow:0 8rem 22rem rgba(232,93,42,.3)}
 .dl .sz{font-size:8.5rem;font-weight:600;color:rgba(255,255,255,.8)}
 .dl .arr{width:13rem;height:13rem}
@@ -162,14 +162,14 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .ach .a-v{font-size:15rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin-top:4rem}
 
 /* ---------- HOME VIDEO SHOWCASE (My Edits on the homepage) ---------- */
-.wshow{background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;padding:44rem 0 10rem}
-.wshow-ctr{max-width:960rem;margin:0 auto}
-.ws-head .w-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6rem 14rem;border-radius:999rem;margin-bottom:18rem}
+.wshow{background:transparent;border:0;border-radius:0;box-shadow:none;overflow:visible;padding:70rem 0 20rem}
+.wshow-ctr{max-width:960rem;margin:0}
+.ws-head .w-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6rem 14rem;border-radius:999rem;margin-bottom:20rem}
 .ws-head h2{font-size:34rem;font-weight:800;letter-spacing:-.03em;line-height:1.04;color:var(--ink);text-transform:uppercase}
 .ws-head h2 .r{color:var(--accent)}
-.ws-head p{margin-top:14rem;font-size:14.5rem;font-weight:400;line-height:1.7;color:var(--muted)}
-.ws-group{margin-top:56rem}
-.w-label{display:flex;align-items:center;gap:12rem;margin-bottom:20rem;font-size:13rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.ws-head p{margin-top:16rem;font-size:14.5rem;font-weight:400;line-height:1.7;color:var(--muted)}
+.ws-group{margin-top:64rem}
+.w-label{display:flex;align-items:center;gap:12rem;margin-bottom:22rem;font-size:13rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
 .w-num{font-size:11rem;font-weight:700;color:var(--accent)}
 .w-label::after{content:"";flex:1;height:1rem;background:var(--line)}
 
@@ -195,9 +195,9 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .marquee-track .mq i{width:7rem;height:7rem;background:var(--accent);flex:none}
 @keyframes marqueeProjects{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
-/* Big channel CTAs (each ~ half of the card width on desktop) */
-.channel-row{display:flex;gap:12rem}
-.ch-btn{flex:1 1 0;min-width:0;display:inline-flex;align-items:center;justify-content:center;gap:10rem;height:64rem;padding:0 22rem;border-radius:999rem;font-size:16rem;font-weight:800;letter-spacing:-.01em;transition:transform .3s ease, box-shadow .3s ease}
+/* Channel CTAs (stacked vertically; each keeps ~half the page width) */
+.channel-row{display:flex;flex-direction:column;align-items:flex-start;gap:16rem}
+.ch-btn{display:inline-flex;align-items:center;justify-content:center;gap:10rem;height:62rem;width:50%;max-width:680rem;min-width:0;padding:0 22rem;border-radius:999rem;font-size:16rem;font-weight:800;letter-spacing:-.01em;transition:transform .3s ease, box-shadow .3s ease}
 .ch-btn .arr{width:17rem;height:17rem;flex:none;transition:transform .3s ease}
 .ch-btn:hover{transform:translateY(-3rem)}
 .ch-btn:hover .arr{transform:translate(3rem,-2rem)}
@@ -280,7 +280,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .topbar-inner{width:100%;flex-wrap:wrap;row-gap:8rem}
   .topbar .tb-l{font-size:10.5rem}
   .topbar .tb-r{font-size:8.5rem;gap:8rem;flex-wrap:wrap}
-  .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:16rem;padding-bottom:60rem}
+  .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:24rem;padding-bottom:80rem}
   .hero,.projects,.tools,.achievements,.wshow{grid-column:1}
   .hero{padding:30rem 24rem 28rem}
   .hero h1{font-size:32rem}
@@ -297,8 +297,9 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .wshow-ctr{padding:0 20rem}
   .ws-head h2{font-size:26rem}
   .ws-group{margin-top:42rem}
-  .channel-row{flex-direction:column}
+  .channel-row{flex-direction:column;gap:14rem}
   .ch-btn{flex:none;width:100%;height:58rem}
+  .dl{width:100%;max-width:none}
   .footer-inner{width:375rem;padding:36rem 20rem 30rem}
   .contact-links{gap:12rem}
   .contact-links a{font-size:15rem}
