@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daniel Xie — Video Editor &amp; Filmmaker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function(){
+  try{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.documentElement.classList.add('motion-pending');
+    window.__failSafeTimer = setTimeout(function(){
+      document.documentElement.classList.remove('motion-pending');
+    }, 2400);
+  }catch(e){}
+})();
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F4F3EF;
+  --card:#FFFFFF;
+  --card2:#EAE9E4;
+  --ink:#171717;
+  --muted:#686868;
+  --line:#D5D3CC;
+  --accent:#E85D2A;
+  --amber:#E85D2A;
+}
+html{font-size:min(calc(95vw / 1374), 1.35px)}
+body{
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;min-height:100dvh;
+  overflow-x:hidden;overflow-y:auto;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;border:none;background:none;color:inherit;cursor:pointer}
+
+.topbar{
+  position:sticky;top:0;z-index:60;
+  padding:14rem 32rem;margin-bottom:40rem;
+  background:#F4F3EF;
+  border-bottom:1rem solid var(--line);
+}
+.topbar-inner{width:1374rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16rem}
+.topbar .tb-l{font-size:11rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
+.topbar .tb-r{display:flex;align-items:center;gap:14rem;font-size:9.5rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.topbar .tb-r a{color:var(--ink);transition:color .3s ease}
+.topbar .tb-r a:hover{color:var(--accent)}
+.topbar .tb-r .tb-sep{color:var(--line)}
+
+.stage{
+  width:1374rem;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  column-gap:18rem;row-gap:18rem;
+  padding-bottom:80rem;
+}
+.card{
+  border-radius:14rem;border:1rem solid var(--line);
+  overflow:hidden;position:relative;
+  box-shadow:0 2rem 14rem rgba(23,23,23,.05);
+}
+.k{
+  font-size:9rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--muted);
+}
+.hero{grid-column:1/span 2;order:1}
+.projects{grid-column:1/span 2;order:2}
+.tools{grid-column:1;order:3}
+.achievements{grid-column:2;order:4}
+
+/* ---------- ABOUT ME (HERO) ---------- */
+.hero{
+  background:var(--card);
+  padding:48rem 48rem 44rem;
+  display:flex;flex-direction:column;
+}
+.hero .k{margin-bottom:18rem}
+.hero h1{font-size:54rem;font-weight:800;letter-spacing:-.035em;line-height:.95;color:var(--ink);text-transform:uppercase}
+.hero h1 .r{color:var(--accent)}
+.hero .role-line{margin-top:14rem;font-size:15rem;font-weight:600;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.hero .body{margin-top:24rem;font-size:16rem;font-weight:400;line-height:1.6;color:var(--ink);max-width:820rem}
+.hero .body-2{margin-top:16rem;font-size:14rem;line-height:1.62;color:var(--muted);max-width:820rem}
+.hero .tags{margin-top:26rem;display:flex;gap:8rem;flex-wrap:wrap}
+.hero .tags span{font-size:9rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6rem 13rem;border:1rem solid var(--line);border-radius:999rem}
+/* ---------- 06 / EDITING TOOLS ---------- */
+.tools{
+  background:var(--card2);
+  padding:22rem 22rem 18rem;
+  display:flex;flex-direction:column;
+}
+.tools .k{margin-bottom:14rem}
+.tool-row{display:flex;align-items:center;gap:10rem;padding:9rem 0;border-bottom:1rem solid var(--line)}
+.tool-row:last-child{border-bottom:0}
+.tool-mark{width:34rem;height:34rem;border-radius:8rem;display:flex;align-items:center;justify-content:center;flex:none;font-weight:800;font-size:11rem;letter-spacing:-.02em;position:relative;overflow:hidden;background:var(--ink);color:#fff}
+.tool-mark svg{width:17rem;height:17rem}
+.tool-info b{display:block;font-size:12rem;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.tool-info span{display:block;font-size:8.5rem;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:2rem}
+.tm-capcut{background:var(--ink);color:#fff}
+.tm-capcut svg{color:#fff}
+.tm-fcp{background:var(--ink);color:#fff}
+.tm-resolve{background:var(--ink);color:#fff}
+.tm-pr{background:var(--ink);color:#fff}
+.tm-ae{background:var(--ink);color:#fff}
+
+/* ---------- 03 / PROJECTS ---------- */
+.projects{
+  background:var(--card);
+  padding:24rem 20rem 20rem;
+  display:flex;flex-direction:column;
+}
+.projects .k{margin-bottom:16rem}
+.proj{display:flex;align-items:center;gap:12rem;padding:14rem 12rem;border:1rem solid var(--line);border-radius:12rem;margin-bottom:9rem;transition:border-color .3s ease, transform .3s ease}
+.proj:hover{border-color:var(--ink);transform:translateY(-2rem)}
+.proj-num{font-size:10rem;font-weight:700;letter-spacing:.05em;color:var(--accent);flex:none;width:22rem}
+.proj-body{flex:1;min-width:0}
+.proj-body b{display:block;font-size:14rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.proj-body span{display:block;font-size:9.5rem;font-weight:500;letter-spacing:.04em;color:var(--muted);margin-top:3rem;text-transform:uppercase}
+.proj .arr{width:14rem;height:14rem;flex:none;color:var(--muted);transition:transform .3s ease, color .3s ease}
+.proj:hover .arr{transform:translateX(3rem);color:var(--accent)}
+.proj.dim{opacity:.55;cursor:default}
+.proj.dim:hover{border-color:var(--line);transform:none}
+.btn-row{display:flex;gap:7rem;margin:6rem 0 16rem}
+.btn{flex:1;height:36rem;display:inline-flex;align-items:center;justify-content:center;font-size:10rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border:1rem solid var(--line);border-radius:999rem;transition:background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease}
+.btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2rem)}
+.games{border:1rem solid var(--line);border-radius:12rem;padding:14rem;margin-top:18rem;background:var(--card2)}
+.games-head{display:flex;align-items:center;gap:12rem;margin-bottom:14rem}
+.games-head .gp{width:40rem;height:40rem;border-radius:10rem;background:rgba(232,93,42,.12);display:flex;align-items:center;justify-content:center;color:var(--accent);flex:none}
+.games-head .gp svg{width:22rem;height:22rem}
+.games-head .g-k{display:block;font-size:8.5rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem}
+.games-head b{display:block;font-size:16rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.games-head .g-sub{display:block;font-size:10.5rem;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:4rem}
+.dl{display:flex;align-items:center;justify-content:space-between;gap:10rem;height:38rem;padding:0 14rem;border-radius:999rem;background:var(--accent);color:#fff;font-size:11rem;font-weight:700;letter-spacing:.02em;transition:transform .3s ease, box-shadow .3s ease}
+.dl:hover{transform:translateY(-2rem);box-shadow:0 8rem 22rem rgba(232,93,42,.3)}
+.dl .sz{font-size:8.5rem;font-weight:600;color:rgba(255,255,255,.8)}
+.dl .arr{width:13rem;height:13rem}
+
+/* ---------- 04 / ACHIEVEMENTS ---------- */
+.achievements{
+  background:var(--card2);
+  padding:24rem 22rem 20rem;
+  display:flex;flex-direction:column;
+}
+.achievements .k{margin-bottom:14rem}
+.ach{padding:11rem 0;border-bottom:1rem solid var(--line)}
+.ach:last-child{border-bottom:0}
+.ach .a-k{font-size:9rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.ach .a-v{font-size:15rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);margin-top:4rem}
+
+/* ---------- WORKS VIEW (My Edits) ---------- */
+.works{position:fixed;inset:0;z-index:200;background:var(--bg);color:var(--ink);overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}
+body.works-open{overflow:hidden}
+body.works-open .works{display:block}
+.works-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16rem;padding:18rem 32rem;background:#F4F3EF;border-bottom:1rem solid var(--line)}
+.works-top .back{display:inline-flex;align-items:center;gap:8rem;font-size:11rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:color .3s ease}
+.works-top .back:hover{color:var(--accent)}
+.works-top .back .arr{width:15rem;height:15rem}
+.works-top .w-title{font-size:11rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+.works-head{padding:64rem 32rem 0}
+.w-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6rem 14rem;border-radius:999rem;margin-bottom:20rem}
+.works-head h1{font-size:46rem;font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--ink);text-transform:uppercase}
+.works-head h1 .r{color:var(--accent)}
+.works-head p{margin-top:18rem;font-size:15rem;font-weight:400;line-height:1.6;color:var(--muted);max-width:520rem}
+
+.w-section{margin-top:56rem;padding:0 32rem;max-width:960rem}
+.w-label{display:flex;align-items:center;gap:12rem;margin-bottom:20rem;font-size:15rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+.w-num{font-size:11rem;font-weight:700;color:var(--accent)}
+.w-label::after{content:"";flex:1;height:1rem;background:var(--line)}
+
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16rem}
+.video-card{position:relative;aspect-ratio:16/9;border-radius:12rem;overflow:hidden;background:var(--card2);cursor:pointer;border:1rem solid var(--line);transition:border-color .3s ease, transform .3s ease}
+.video-card:hover{border-color:var(--ink);transform:translateY(-2rem)}
+.video-card video{width:100%;height:100%;object-fit:cover;display:block}
+.video-card .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:62rem;height:62rem;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;z-index:5;transition:opacity .25s ease, transform .25s ease}
+.video-card .play svg{width:24rem;height:24rem;color:#fff;margin-left:4rem}
+.video-card.playing .play{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.video-card .v-info{position:absolute;left:0;right:0;bottom:0;z-index:6;padding:44rem 16rem 14rem;background:linear-gradient(transparent, rgba(0,0,0,.9))}
+.video-card.playing .v-info{opacity:0;transition:opacity .25s ease}
+.video-card .v-info b{display:block;font-size:15rem;font-weight:700;color:#fff}
+.video-card .v-info span{display:block;font-size:9.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.62);margin-top:3rem}
+.video-card .fs-btn{position:absolute;top:10rem;right:10rem;z-index:7;width:34rem;height:34rem;border-radius:9rem;background:rgba(23,23,23,.6);color:#fff;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s ease, background .25s ease}
+.video-card:hover .fs-btn,.video-card .fs-btn:focus-visible{opacity:1}
+.video-card .fs-btn:hover{background:var(--accent)}
+.video-card .fs-btn svg{width:16rem;height:16rem}
+
+.w-marquee{overflow:hidden;border-top:1rem solid var(--line);border-bottom:1rem solid var(--line);margin-top:64rem;padding:18rem 0}
+.marquee-track{display:flex;width:max-content;animation:marqueeProjects 28s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-track .mq{display:inline-flex;align-items:center;gap:14rem;padding:0 28rem;white-space:nowrap;font-size:15rem;font-weight:500;letter-spacing:.04em;color:var(--muted)}
+.marquee-track .mq i{width:7rem;height:7rem;background:var(--accent);flex:none}
+@keyframes marqueeProjects{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+.w-footer{padding:44rem 32rem 30rem;max-width:960rem;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24rem;flex-wrap:wrap}
+.w-footer p{font-size:13rem;line-height:1.6;color:var(--muted);max-width:420rem}
+.channel-row{display:flex;gap:10rem;flex-wrap:wrap;margin-bottom:14rem}
+.ch-btn{display:inline-flex;align-items:center;gap:8rem;height:48rem;padding:0 24rem;border-radius:999rem;font-size:13rem;font-weight:700;letter-spacing:.02em;transition:transform .3s ease, box-shadow .3s ease}
+.ch-btn:hover{transform:translateY(-2rem)}
+.ch-btn .arr{width:15rem;height:15rem}
+.ch-red{background:var(--accent);color:#fff}
+.ch-red:hover{box-shadow:0 8rem 22rem rgba(232,93,42,.3)}
+.ch-ig{background:var(--ink);color:#fff}
+.ch-ig:hover{box-shadow:0 8rem 22rem rgba(23,23,23,.25)}
+
+/* My edits button (projects card) */
+.myedits{display:flex;align-items:center;gap:14rem;margin-bottom:16rem;padding:20rem 16rem;border:1rem solid var(--line);border-radius:12rem;background:var(--card);transition:transform .3s ease, border-color .3s ease;max-width:620rem}
+.myedits:hover{transform:translateY(-2rem);border-color:var(--accent)}
+.myedits .me-icon{width:48rem;height:48rem;border-radius:12rem;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.myedits .me-icon svg{width:20rem;height:20rem;margin-left:3rem}
+.myedits .me-body{flex:1;min-width:0}
+.myedits .me-txt{display:block;font-size:20rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+.myedits .me-sub{display:block;font-size:9.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:3rem}
+.myedits .arr{width:18rem;height:18rem;color:var(--muted);margin-left:auto;flex:none}
+
+.btn.dim{opacity:.5;cursor:default}
+.btn.dim:hover{background:none;color:var(--ink);border-color:var(--line);transform:none}
+
+/* ---------- FOOTER (Contact) ---------- */
+.footer{border-top:1rem solid var(--line);margin-top:20rem}
+.footer-inner{width:1374rem;margin:0 auto;padding:44rem 0 36rem}
+.footer-inner .k{margin-bottom:18rem}
+.contact-links{display:flex;align-items:baseline;gap:18rem;flex-wrap:wrap}
+.contact-links a{font-size:22rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);transition:color .3s ease;word-break:break-all}
+.contact-links a:hover{color:var(--accent)}
+.contact-links .sep{font-size:18rem;color:var(--line)}
+.footer-marquee{overflow:hidden;border-top:1rem solid var(--line);padding:16rem 0}
+
+/* ---------- ENTRANCE ANIMATION ---------- */
+@keyframes panel-settle{0%{opacity:0;transform:translateY(12rem) scale(.988);clip-path:inset(3% round 22rem)}62%{opacity:1}100%{opacity:1;transform:none;clip-path:inset(0)}}
+@keyframes type-unmask{0%{opacity:0;transform:translateY(16rem);clip-path:inset(0 0 96% 0)}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@keyframes content-rise{0%{opacity:0;transform:translateY(9rem)}100%{opacity:1;transform:none}}
+@keyframes interface-settle{0%{opacity:0;transform:translateY(16rem) scale(.975)}100%{opacity:1;transform:none}}
+@keyframes detail-settle{0%{opacity:0;transform:translateY(8rem) scale(.97)}100%{opacity:1;transform:none}}
+@keyframes toast-arrive{0%{opacity:0;transform:translateY(10rem) scale(.982)}100%{opacity:1;transform:none}}
+@keyframes chip-row-arrive{0%{opacity:0;transform:translateY(11rem)}100%{opacity:1;transform:none}}
+@keyframes chart-unmask{0%{opacity:0;transform:translateY(10rem);clip-path:inset(100% 0 0 0)}100%{opacity:1;transform:none;clip-path:inset(0)}}
+@keyframes search-resolve{0%{opacity:0;transform:translateX(12rem) scale(.975,1)}100%{opacity:1;transform:none}}
+
+html.motion-pending .card{opacity:0;visibility:hidden}
+
+html.entrance-run .card{will-change:opacity,transform,clip-path}
+html.entrance-run .topbar{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .02s backwards}
+html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04s backwards}
+html.entrance-run .projects{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .12s backwards}
+html.entrance-run .tools{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .18s backwards}
+html.entrance-run .achievements{animation:panel-settle .68s cubic-bezier(.16,1,.3,1) .24s backwards}
+
+html.entrance-run .hero .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .22s backwards}
+html.entrance-run .hero h1{animation:type-unmask .78s cubic-bezier(.22,1,.36,1) .28s backwards}
+html.entrance-run .hero .role-line{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .44s backwards}
+html.entrance-run .hero .body{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .52s backwards}
+html.entrance-run .hero .body-2{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .6s backwards}
+html.entrance-run .hero .tags{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .7s backwards}
+
+html.entrance-run .projects .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .32s backwards}
+html.entrance-run .projects .proj{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .42s backwards}
+html.entrance-run .projects .btn-row{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .56s backwards}
+html.entrance-run .projects .games{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .66s backwards}
+
+html.entrance-run .tools .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .38s backwards}
+html.entrance-run .tools .tool-row{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .46s backwards}
+
+html.entrance-run .achievements .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .44s backwards}
+html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .5s backwards}
+
+/* ---------- RESPONSIVE — TABLET ---------- */
+@media (min-width:701px) and (max-width:1040px) and (max-aspect-ratio:3/2){
+  .topbar-inner{width:95vw}
+  .stage{width:95vw}
+  .tools{grid-column:1/span 2}
+  .achievements{grid-column:1/span 2}
+}
+
+/* ---------- RESPONSIVE — MOBILE ---------- */
+@media (max-width:700px){
+  html{font-size:calc((min(100vw, 560px) - 30px) / 375)}
+  .topbar{padding:12rem 16rem;margin-bottom:24rem}
+  .topbar-inner{width:100%;flex-wrap:wrap;row-gap:8rem}
+  .topbar .tb-l{font-size:10.5rem}
+  .topbar .tb-r{font-size:8.5rem;gap:8rem;flex-wrap:wrap}
+  .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:16rem;padding-bottom:60rem}
+  .hero,.projects,.tools,.achievements{grid-column:1}
+  .hero{padding:30rem 24rem 28rem}
+  .hero h1{font-size:32rem}
+  .hero .body{font-size:13.5rem}
+  .hero .body-2{font-size:12.5rem}
+  .myedits{max-width:none}
+
+  html.motion-pending .card{opacity:1;visibility:visible}
+  html.motion-pending .hero{opacity:0;visibility:hidden}
+  html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04s backwards}
+
+  .video-grid{grid-template-columns:1fr}
+  .video-card .fs-btn{opacity:.9}
+  .works-top{padding:14rem 20rem}
+  .works-head{padding:44rem 20rem 0}
+  .works-head h1{font-size:32rem}
+  .w-section{padding:0 20rem}
+  .w-footer{padding:32rem 20rem 24rem}
+  .w-footer .channel-row{width:100%}
+  .w-footer .ch-btn{flex:1;justify-content:center}
+  .footer-inner{width:375rem;padding:36rem 20rem 30rem}
+  .contact-links{gap:12rem}
+  .contact-links a{font-size:15rem}
+}
+</style>
+</head>
+<body>
+<header class="topbar" aria-label="Site header">
+  <div class="topbar-inner">
+    <span class="tb-l">Daniel Xie</span>
+    <div class="tb-r">
+      <a href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">@daniel_mn</a>
+      <span class="tb-sep">/</span>
+      <span>Portfolio · 2026</span>
+    </div>
+  </div>
+</header>
+<div class="stage" role="main" aria-label="Daniel Xie — creative portfolio">
+
+  <!-- ABOUT ME -->
+  <section class="card hero" aria-label="About me">
+    <div class="k">About Me</div>
+    <h1>Daniel <span class="r">Xie</span></h1>
+    <div class="role-line">Video Editor · Filmmaker</div>
+    <div class="body">I'm Daniel Xie, a Year 9 student with a strong interest in video editing and filmmaking. Most of my creative energy goes into editing, and I'm currently getting used to Adobe After Effects and exploring new ways to improve my work.</div>
+    <div class="body body-2">I also enjoy things like drama, debate, game making, and Minecraft, but video editing is where I spend most of my time and where I'm most interested in developing my skills.</div>
+    <div class="tags"><span>Video Editing</span><span>Film</span><span>Game Making</span><span>Minecraft</span></div>
+  </section>
+
+
+  <!-- 06 / EDITING TOOLS -->
+  <section class="card tools" aria-label="Editing tools">
+    <div class="k">06 / Editing Tools</div>
+    <div class="tool-row">
+      <div class="tool-mark tm-capcut">剪映</div>
+      <div class="tool-info"><b>CapCut / 剪映</b><span>Quick cuts &amp; social edits</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-fcp">FCP</div>
+      <div class="tool-info"><b>Final Cut Pro</b><span>Apple editing suite</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-resolve"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 7.8 4.5z"/><path d="M12 12l7.8 4.5A9 9 0 0 1 12 21z"/></svg></div>
+      <div class="tool-info"><b>DaVinci Resolve</b><span>Color &amp; finishing</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-pr">Pr</div>
+      <div class="tool-info"><b>Premiere Pro</b><span>Timeline &amp; assembly</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-ae">Ae</div>
+      <div class="tool-info"><b>After Effects</b><span>Motion &amp; FX</span></div>
+    </div>
+  </section>
+
+  <!-- 03 / PROJECTS -->
+  <section class="card projects" id="projects" aria-label="Selected projects">
+    <div class="k">02 / Selected Projects</div>
+    <a class="myedits" href="#works" data-open="works" aria-label="Open My edits video page">
+      <span class="me-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+      <span class="me-body">
+        <span class="me-txt">My edits</span>
+        <span class="me-sub">6 video projects</span>
+      </span>
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <div class="proj dim"><span class="proj-num">01</span><span class="proj-body"><b>From 1 to Infinity Trailer Edit</b><span>Film / Editing</span></span></div>
+    <a class="proj" href="#games" aria-label="Cave Zero — Game / Construct">
+      <span class="proj-num">02</span>
+      <span class="proj-body"><b>Cave Zero</b><span>Game / Construct</span></span>
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+    <div class="proj dim"><span class="proj-num">03</span><span class="proj-body"><b>Miles Morales Edits</b><span>Film / Editing</span></span></div>
+    <div class="proj dim"><span class="proj-num">04</span><span class="proj-body"><b>MARVEL Edits</b><span>Film / Editing</span></span></div>
+    <div class="btn-row">
+      <span class="btn dim">Film</span>
+      <span class="btn dim">Editing</span>
+      <span class="btn dim">Video</span>
+    </div>
+    <div class="channel-row">
+      <a class="ch-btn ch-red" href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">RedNote channel
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+      <a class="ch-btn ch-ig" href="https://www.instagram.com/daniel_xiemn/" target="_blank" rel="noopener noreferrer">Instagram channel
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+    <div class="games" id="games">
+      <div class="games-head">
+        <div class="gp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7.5h11a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z"/><path d="M7.5 11v2.5M6.25 12.25h2.5"/><circle cx="15.5" cy="12" r=".7" fill="currentColor"/><circle cx="17.7" cy="13.8" r=".7" fill="currentColor"/></svg></div>
+        <div>
+          <span class="g-k">Games I Made</span>
+          <b>Cave Zero</b>
+          <span class="g-sub">My low-pixel parkour game</span>
+        </div>
+      </div>
+      <a class="dl" href="Cave-Zero.c3p" download aria-label="Download Cave Zero game, 6.5 megabytes">
+        <span>Download Game</span>
+        <span class="sz">6.5 MB</span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- 04 / ACHIEVEMENTS -->
+  <section class="card achievements" aria-label="Achievements">
+    <div class="k">04 / Achievements</div>
+    <div class="ach"><div class="a-k">Debate</div><div class="a-v">National Champion</div></div>
+    <div class="ach"><div class="a-k">Best Debater</div><div class="a-v">Overall Best Debater 2025</div></div>
+    <div class="ach"><div class="a-k">Drama</div><div class="a-v">Overall Best Leading Actor</div></div>
+    <div class="ach"><div class="a-k">Badminton</div><div class="a-v">School Team</div></div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer" aria-label="Contact">
+  <div class="footer-inner">
+    <div class="k">Contact</div>
+    <div class="contact-links">
+      <a href="mailto:daniel.xie247007@gmail.com">daniel.xie247007@gmail.com</a>
+    </div>
+  </div>
+  <div class="footer-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="mq"><i></i>CapCut · 剪映</span>
+      <span class="mq"><i></i>Final Cut Pro</span>
+      <span class="mq"><i></i>DaVinci Resolve</span>
+      <span class="mq"><i></i>Premiere Pro</span>
+      <span class="mq"><i></i>After Effects</span>
+      <span class="mq"><i></i>Video Editing</span>
+      <span class="mq"><i></i>Filmmaking</span>
+      <span class="mq"><i></i>Minecraft</span>
+      <span class="mq"><i></i>CapCut · 剪映</span>
+      <span class="mq"><i></i>Final Cut Pro</span>
+      <span class="mq"><i></i>DaVinci Resolve</span>
+      <span class="mq"><i></i>Premiere Pro</span>
+      <span class="mq"><i></i>After Effects</span>
+      <span class="mq"><i></i>Video Editing</span>
+      <span class="mq"><i></i>Filmmaking</span>
+      <span class="mq"><i></i>Minecraft</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WORKS VIEW -->
+<div class="works" id="works" aria-label="My edits">
+  <header class="works-top">
+    <button class="back" id="backBtn" type="button" aria-label="Back to home">
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Back
+    </button>
+    <span class="w-title">Daniel Xie — My Edits</span>
+  </header>
+
+  <div class="works-head">
+    <span class="w-badge">My edits</span>
+    <h1>Selected video<br><span class="r">edits</span></h1>
+    <p>Trailers, fan edits &amp; projects I've cut — tap a clip to play.</p>
+  </div>
+
+  <section class="w-section">
+    <div class="w-label"><span class="w-num">01</span> Marvel</div>
+    <div class="video-grid">
+      <figure class="video-card">
+        <video preload="metadata" playsinline aria-label="Avengers edit">
+          <source src="videos/marvel-01-avengers.mp4" type="video/mp4">
+        </video>
+        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <button class="play" type="button" aria-label="Play Avengers edit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption class="v-info"><b>Avengers</b><span>Marvel · Fan edit</span></figcaption>
+      </figure>
+      <figure class="video-card">
+        <video preload="metadata" playsinline aria-label="Deadpool edit">
+          <source src="videos/marvel-02-deadpool.mp4" type="video/mp4">
+        </video>
+        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <button class="play" type="button" aria-label="Play Deadpool edit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption class="v-info"><b>Deadpool</b><span>Marvel · Fan edit</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="w-section">
+    <div class="w-label"><span class="w-num">02</span> Spider-Man</div>
+    <div class="video-grid">
+      <figure class="video-card">
+        <video preload="metadata" playsinline aria-label="Not Like Us Spider-Man edit">
+          <source src="videos/spiderman-03-not-like-us.mp4" type="video/mp4">
+        </video>
+        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <button class="play" type="button" aria-label="Play Not Like Us"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption class="v-info"><b>Not Like Us</b><span>Spider-Man · Edit</span></figcaption>
+      </figure>
+      <figure class="video-card">
+        <video preload="metadata" playsinline aria-label="June 22 Spider-Man edit">
+          <source src="videos/spiderman-04-june-22.mp4" type="video/mp4">
+        </video>
+        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <button class="play" type="button" aria-label="Play June 22"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption class="v-info"><b>June 22</b><span>Spider-Man · Edit</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="w-section">
+    <div class="w-label"><span class="w-num">03</span> Cinematic Trailer</div>
+    <div class="video-grid">
+      <figure class="video-card">
+        <video preload="metadata" playsinline aria-label="Boonie Bears trailer">
+          <source src="videos/trailer-05-boonie-bears.mp4" type="video/mp4">
+        </video>
+        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <button class="play" type="button" aria-label="Play Boonie Bears trailer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption class="v-info"><b>Boonie Bears</b><span>Cinematic · Trailer</span></figcaption>
+      </figure>
+      <figure class="video-card">
+        <video preload="metadata" playsinline aria-label="From 1 to Infinity trailer">
+          <source src="videos/trailer-06-from-1-to-infinity.mp4" type="video/mp4">
+        </video>
+        <button class="fs-btn" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <button class="play" type="button" aria-label="Play From 1 to Infinity trailer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption class="v-info"><b>From 1 to Infinity</b><span>Cinematic · Trailer</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="w-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="mq"><i></i>CapCut · 剪映</span>
+      <span class="mq"><i></i>Final Cut Pro</span>
+      <span class="mq"><i></i>DaVinci Resolve</span>
+      <span class="mq"><i></i>Premiere Pro</span>
+      <span class="mq"><i></i>After Effects</span>
+      <span class="mq"><i></i>Video Editing</span>
+      <span class="mq"><i></i>Filmmaking</span>
+      <span class="mq"><i></i>Minecraft</span>
+      <span class="mq"><i></i>CapCut · 剪映</span>
+      <span class="mq"><i></i>Final Cut Pro</span>
+      <span class="mq"><i></i>DaVinci Resolve</span>
+      <span class="mq"><i></i>Premiere Pro</span>
+      <span class="mq"><i></i>After Effects</span>
+      <span class="mq"><i></i>Video Editing</span>
+      <span class="mq"><i></i>Filmmaking</span>
+      <span class="mq"><i></i>Minecraft</span>
+    </div>
+  </div>
+
+  <div class="w-footer">
+    <p>More edits and behind-the-scenes live on my channels. Follow along for new cuts.</p>
+    <div class="channel-row">
+      <a class="ch-btn ch-red" href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">RedNote channel
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+      <a class="ch-btn ch-ig" href="https://www.instagram.com/daniel_xiemn/" target="_blank" rel="noopener noreferrer">Instagram channel
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  function clearFailSafe(){ if(window.__failSafeTimer){ clearTimeout(window.__failSafeTimer); window.__failSafeTimer = null; } }
+  function removeMotionClasses(){ root.classList.remove('motion-pending'); root.classList.remove('entrance-run'); }
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.__entrancePlayed){
+    clearFailSafe(); removeMotionClasses(); return;
+  }
+  window.__entrancePlayed = true;
+  clearFailSafe();
+  var run = function(){
+    root.classList.remove('motion-pending');
+    root.classList.add('entrance-run');
+    setTimeout(function(){ root.classList.remove('entrance-run'); }, 2000);
+  };
+  if(document.fonts && document.fonts.ready){
+    Promise.race([
+      document.fonts.ready,
+      new Promise(function(resolve){ setTimeout(resolve, 700); })
+    ]).then(run);
+  } else { run(); }
+})();
+</script>
+<script>
+(function(){
+  var works = document.getElementById('works');
+  function openWorks(){ document.body.classList.add('works-open'); if(works) works.scrollTop = 0; }
+  function closeWorks(){ document.body.classList.remove('works-open'); }
+  document.querySelectorAll('[data-open="works"]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); openWorks(); });
+  });
+  var backBtn = document.getElementById('backBtn');
+  if(backBtn){ backBtn.addEventListener('click', closeWorks); }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeWorks(); });
+
+  var cave = document.querySelector('a[href="#games"]');
+  if(cave){ cave.addEventListener('click', function(e){ var g = document.getElementById('games'); if(g && g.scrollIntoView){ e.preventDefault(); g.scrollIntoView({behavior:'smooth', block:'nearest'}); } }); }
+
+  // video click-to-play (first frame stays until tapped)
+  document.querySelectorAll('.video-card').forEach(function(card){
+    var v = card.querySelector('video');
+    if(!v) return;
+    card.addEventListener('click', function(){ if(v.paused){ v.play(); } else { v.pause(); } });
+    v.addEventListener('play', function(){ card.classList.add('playing'); });
+    v.addEventListener('pause', function(){ card.classList.remove('playing'); });
+    v.addEventListener('ended', function(){ card.classList.remove('playing'); });
+  });
+
+  // fullscreen
+  document.querySelectorAll('.video-card .fs-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var v = btn.closest('.video-card').querySelector('video');
+      if(!v) return;
+      if(v.requestFullscreen){ v.requestFullscreen(); }
+      else if(v.webkitRequestFullscreen){ v.webkitRequestFullscreen(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
