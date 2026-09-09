@@ -625,10 +625,33 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
         v.insertBefore(v.lastElementChild, v.firstElementChild);
       }
     }catch(e){}
-    card.addEventListener('click', function(){ if(v.paused){ v.play(); } else { v.pause(); } });
+    card.addEventListener('click', function(){
+      var p;
+      if(v.paused){ p = v.play(); } else { v.pause(); }
+      if(p && p.catch){ p.catch(function(){}); }
+    });
     v.addEventListener('play', function(){ card.classList.add('playing'); });
     v.addEventListener('pause', function(){ card.classList.remove('playing'); });
     v.addEventListener('ended', function(){ card.classList.remove('playing'); });
+    // Bulletproof fallback: if the chosen source cannot be decoded/loaded
+    // (e.g. HEVC Blob picked by a non-HEVC browser), switch to the other
+    // source once so the clip always becomes playable.
+    var srcFailed = false;
+    v.addEventListener('error', function(){
+      if(srcFailed) return; srcFailed = true;
+      var kids = v.querySelectorAll('source'), cand = null, i;
+      for(i = 0; i < kids.length; i++){
+        var c = kids[i].getAttribute('src') || '';
+        if(c && c.indexOf('http') !== 0 && c !== v.currentSrc){ cand = c; break; }
+      }
+      if(!cand){
+        for(i = 0; i < kids.length; i++){
+          var c2 = kids[i].getAttribute('src') || '';
+          if(c2 && c2 !== v.currentSrc){ cand = c2; break; }
+        }
+      }
+      if(cand){ v.src = cand; v.load(); }
+    });
   });
 
   // fullscreen
