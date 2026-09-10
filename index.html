@@ -63,6 +63,7 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .topbar .tb-r .tb-sep{color:var(--line)}
 
 .stage{
+  position:relative;z-index:1;
   width:1374rem;margin:0 auto;
   display:grid;grid-template-columns:1fr 1fr;
   column-gap:18rem;row-gap:40rem;
@@ -77,11 +78,10 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
   font-size:9rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
   color:var(--muted);
 }
-.curtain{grid-column:1/span 2;order:0}
 .hero{grid-column:1/span 2;order:1}
 .stats{grid-column:1/span 2;order:2}
-.projects{grid-column:1/span 2;order:3}
-.wshow{grid-column:1/span 2;order:4}
+.wshow{grid-column:1/span 2;order:3}
+.projects{grid-column:1/span 2;order:4}
 .tools{grid-column:1;order:5}
 .achievements{grid-column:2;order:6}
 
@@ -212,7 +212,7 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .btn.dim:hover{background:none;color:var(--ink);border-color:var(--line);transform:none}
 
 /* ---------- FOOTER (Contact) ---------- */
-.footer{border-top:1rem solid var(--line);margin-top:20rem}
+.footer{position:relative;z-index:1;border-top:1rem solid var(--line);margin-top:20rem}
 .footer-inner{width:1374rem;margin:0 auto;padding:44rem 0 36rem}
 .footer-inner .k{margin-bottom:18rem}
 .contact-links{display:flex;align-items:baseline;gap:18rem;flex-wrap:wrap}
@@ -221,10 +221,9 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .contact-links .sep{font-size:18rem;color:var(--line)}
 .footer-marquee{overflow:hidden;border-top:1rem solid var(--line);padding:16rem 0}
 
-/* ---------- CURSOR GRID CURTAIN (above the first box) ---------- */
-.curtain{position:relative;height:200rem;border-radius:14rem;border:1rem solid var(--line);overflow:hidden;background:var(--card2);box-shadow:0 2rem 14rem rgba(23,23,23,.05)}
-.curtain canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-.curtain .curtain-note{position:absolute;left:26rem;bottom:20rem;font-size:9rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);pointer-events:none;opacity:.8}
+/* ---------- INTERACTIVE GRID BACKDROP (always behind the page) ---------- */
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-grid canvas{display:block;width:100%;height:100%}
 
 /* ---------- STATS (rolling counters) ---------- */
 .stats{background:var(--card2);padding:40rem 48rem;display:flex;gap:20rem}
@@ -244,6 +243,8 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 html.motion-pending .rv,[data-rv]{opacity:0;transform:translateY(30rem)}
 html.entrance-run .rv,html.entrance-run [data-rv]{animation:none !important;opacity:0;transform:translateY(30rem)}
 .rv.in,[data-rv].in{opacity:1;transform:none;transition:opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)}
+.rv.prlx,[data-rv].prlx{transition:none !important}
+.prlx{will-change:transform}
 @media (prefers-reduced-motion: reduce){
   .rv,[data-rv]{opacity:1;transform:none;transition:none}
   .od-track{transition:none}
@@ -269,7 +270,6 @@ html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04
 html.entrance-run .projects{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .12s backwards}
 html.entrance-run .tools{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .18s backwards}
 html.entrance-run .achievements{animation:panel-settle .68s cubic-bezier(.16,1,.3,1) .24s backwards}
-html.entrance-run .curtain{animation:content-rise .6s cubic-bezier(.16,1,.3,1) .02s backwards}
 html.entrance-run .stats{animation:panel-settle .72s cubic-bezier(.16,1,.3,1) .12s backwards}
 html.entrance-run .stats .stat-num{animation:content-rise .6s cubic-bezier(.16,1,.3,1) .5s backwards}
 html.entrance-run .wshow{animation:none}
@@ -316,8 +316,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .topbar .tb-l{font-size:10.5rem}
   .topbar .tb-r{font-size:8.5rem;gap:8rem;flex-wrap:wrap}
   .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:24rem;padding-bottom:80rem}
-  .curtain,.hero,.stats,.projects,.tools,.achievements,.wshow{grid-column:1}
-  .curtain{height:150rem}
+  .hero,.stats,.projects,.tools,.achievements,.wshow{grid-column:1}
   .stats{flex-direction:column;gap:26rem;padding:30rem 24rem}
   .stat + .stat{border-left:0;border-top:1rem solid var(--line);padding-left:0;padding-top:26rem}
   .stat-num{font-size:34rem}
@@ -348,6 +347,8 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 </style>
 </head>
 <body>
+<!-- INTERACTIVE GRID BACKDROP (always visible behind the page) -->
+<div class="bg-grid" aria-hidden="true"><canvas></canvas></div>
 <header class="topbar" aria-label="Site header">
   <div class="topbar-inner">
     <span class="tb-l">Daniel Xie</span>
@@ -359,12 +360,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   </div>
 </header>
 <div class="stage" role="main" aria-label="Daniel Xie — creative portfolio">
-
-  <!-- CURSOR GRID CURTAIN -->
-  <section class="curtain" aria-hidden="true">
-    <canvas></canvas>
-    <span class="curtain-note">hover &amp; click — the grid listens</span>
-  </section>
 
   <!-- ABOUT ME -->
   <section class="card hero" aria-label="About me">
@@ -389,72 +384,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
         <span class="stat-num"><span class="odo" data-value="2000" aria-hidden="true"></span><span class="stat-sfx">+</span></span>
       </div>
       <div class="stat-cap">Followers · all channels</div>
-    </div>
-  </section>
-
-  <!-- 06 / EDITING TOOLS -->
-  <section class="card tools rv" aria-label="Editing tools">
-    <div class="k">06 / Editing Tools</div>
-    <div class="tool-row">
-      <div class="tool-mark tm-capcut">剪映</div>
-      <div class="tool-info"><b>CapCut / 剪映</b><span>Quick cuts &amp; social edits</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-fcp">FCP</div>
-      <div class="tool-info"><b>Final Cut Pro</b><span>Apple editing suite</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-resolve"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 7.8 4.5z"/><path d="M12 12l7.8 4.5A9 9 0 0 1 12 21z"/></svg></div>
-      <div class="tool-info"><b>DaVinci Resolve</b><span>Color &amp; finishing</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-pr">Pr</div>
-      <div class="tool-info"><b>Premiere Pro</b><span>Timeline &amp; assembly</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-ae">Ae</div>
-      <div class="tool-info"><b>After Effects</b><span>Motion &amp; FX</span></div>
-    </div>
-  </section>
-
-  <!-- 03 / PROJECTS -->
-  <section class="card projects" id="projects" aria-label="Selected projects">
-    <div class="k">02 / Selected Projects</div>
-    <div class="proj dim"><span class="proj-num">01</span><span class="proj-body"><b>From 1 to Infinity Trailer Edit</b><span>Film / Editing</span></span></div>
-    <a class="proj" href="#games" aria-label="Cave Zero — Game / Construct">
-      <span class="proj-num">02</span>
-      <span class="proj-body"><b>Cave Zero</b><span>Game / Construct</span></span>
-      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-    </a>
-    <div class="proj dim"><span class="proj-num">03</span><span class="proj-body"><b>Miles Morales Edits</b><span>Film / Editing</span></span></div>
-    <div class="proj dim"><span class="proj-num">04</span><span class="proj-body"><b>MARVEL Edits</b><span>Film / Editing</span></span></div>
-    <div class="btn-row">
-      <span class="btn dim">Film</span>
-      <span class="btn dim">Editing</span>
-      <span class="btn dim">Video</span>
-    </div>
-    <div class="channel-row">
-      <a class="ch-btn ch-red" href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">RedNote channel
-        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-      </a>
-      <a class="ch-btn ch-ig" href="https://www.instagram.com/daniel_xiemn/" target="_blank" rel="noopener noreferrer">Instagram channel
-        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-      </a>
-    </div>
-    <div class="games" id="games">
-      <div class="games-head">
-        <div class="gp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7.5h11a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z"/><path d="M7.5 11v2.5M6.25 12.25h2.5"/><circle cx="15.5" cy="12" r=".7" fill="currentColor"/><circle cx="17.7" cy="13.8" r=".7" fill="currentColor"/></svg></div>
-        <div>
-          <span class="g-k">Games I Made</span>
-          <b>Cave Zero</b>
-          <span class="g-sub">My low-pixel parkour game</span>
-        </div>
-      </div>
-      <a class="dl" href="Cave-Zero.c3p" download aria-label="Download Cave Zero game, 6.5 megabytes">
-        <span>Download Game</span>
-        <span class="sz">6.5 MB</span>
-        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6"/></svg>
-      </a>
     </div>
   </section>
 
@@ -540,6 +469,74 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
     </div>
     </div>
   </section>
+
+
+  <!-- 06 / EDITING TOOLS -->
+  <section class="card tools rv" aria-label="Editing tools">
+    <div class="k">06 / Editing Tools</div>
+    <div class="tool-row">
+      <div class="tool-mark tm-capcut">剪映</div>
+      <div class="tool-info"><b>CapCut / 剪映</b><span>Quick cuts &amp; social edits</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-fcp">FCP</div>
+      <div class="tool-info"><b>Final Cut Pro</b><span>Apple editing suite</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-resolve"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 7.8 4.5z"/><path d="M12 12l7.8 4.5A9 9 0 0 1 12 21z"/></svg></div>
+      <div class="tool-info"><b>DaVinci Resolve</b><span>Color &amp; finishing</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-pr">Pr</div>
+      <div class="tool-info"><b>Premiere Pro</b><span>Timeline &amp; assembly</span></div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-mark tm-ae">Ae</div>
+      <div class="tool-info"><b>After Effects</b><span>Motion &amp; FX</span></div>
+    </div>
+  </section>
+
+  <!-- 03 / PROJECTS -->
+  <section class="card projects" id="projects" aria-label="Selected projects">
+    <div class="k">02 / Selected Projects</div>
+    <div class="proj dim"><span class="proj-num">01</span><span class="proj-body"><b>From 1 to Infinity Trailer Edit</b><span>Film / Editing</span></span></div>
+    <a class="proj" href="#games" aria-label="Cave Zero — Game / Construct">
+      <span class="proj-num">02</span>
+      <span class="proj-body"><b>Cave Zero</b><span>Game / Construct</span></span>
+      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+    <div class="proj dim"><span class="proj-num">03</span><span class="proj-body"><b>Miles Morales Edits</b><span>Film / Editing</span></span></div>
+    <div class="proj dim"><span class="proj-num">04</span><span class="proj-body"><b>MARVEL Edits</b><span>Film / Editing</span></span></div>
+    <div class="btn-row">
+      <span class="btn dim">Film</span>
+      <span class="btn dim">Editing</span>
+      <span class="btn dim">Video</span>
+    </div>
+    <div class="channel-row">
+      <a class="ch-btn ch-red" href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">RedNote channel
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+      <a class="ch-btn ch-ig" href="https://www.instagram.com/daniel_xiemn/" target="_blank" rel="noopener noreferrer">Instagram channel
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+    <div class="games" id="games">
+      <div class="games-head">
+        <div class="gp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7.5h11a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z"/><path d="M7.5 11v2.5M6.25 12.25h2.5"/><circle cx="15.5" cy="12" r=".7" fill="currentColor"/><circle cx="17.7" cy="13.8" r=".7" fill="currentColor"/></svg></div>
+        <div>
+          <span class="g-k">Games I Made</span>
+          <b>Cave Zero</b>
+          <span class="g-sub">My low-pixel parkour game</span>
+        </div>
+      </div>
+      <a class="dl" href="Cave-Zero.c3p" download aria-label="Download Cave Zero game, 6.5 megabytes">
+        <span>Download Game</span>
+        <span class="sz">6.5 MB</span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6"/></svg>
+      </a>
+    </div>
+  </section>
+
 
   <!-- 04 / ACHIEVEMENTS -->
   <section class="card achievements rv" aria-label="Achievements">
@@ -752,17 +749,17 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var P = {
-      cellSize: 46, color: '#3f3d38', radius: 130, falloff: 'smooth',
-      holdTime: 380, fadeDuration: 760, lineWidth: 1,
-      maxOpacity: 0.5, fillOpacity: 0, gridOpacity: 0.15, cellRadius: 0,
-      clickPulse: true, pulseSpeed: 520
+      cellSize: 52, color: '#7d776c', radius: 150, falloff: 'smooth',
+      holdTime: 420, fadeDuration: 820, lineWidth: 1,
+      maxOpacity: 0.62, fillOpacity: 0, gridOpacity: 0.2, cellRadius: 0,
+      clickPulse: true, pulseSpeed: 540
     };
     var cols = 0, rows = 0, offX = 0, offY = 0, w = 0, h = 0;
     var alphas = new Float32Array(0), touched = new Float64Array(0);
     var pulses = [], raf = 0, running = false, lastFrame = 0;
 
     function rebuild(){
-      w = root.offsetWidth; h = root.offsetHeight;
+      w = window.innerWidth; h = window.innerHeight;
       canvas.width = Math.max(1, Math.round(w * dpr));
       canvas.height = Math.max(1, Math.round(h * dpr));
       canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
@@ -867,8 +864,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       raf = requestAnimationFrame(draw);
     }
     function toLocal(e){
-      var rect = canvas.getBoundingClientRect();
-      return [e.clientX - rect.left, e.clientY - rect.top];
+      return [e.clientX, e.clientY];   // fixed full-viewport layer
     }
     function onMove(e){ var p = toLocal(e); energize(p[0], p[1]); wake(); }
     function onDown(e){
@@ -876,7 +872,8 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       var p = toLocal(e); pulses.push({x: p[0], y: p[1], t0: performance.now()}); wake();
     }
     var ro = null;
-    if(window.ResizeObserver){ ro = new ResizeObserver(function(){ rebuild(); wake(); }); ro.observe(root); }
+    if(window.ResizeObserver){ ro = new ResizeObserver(function(){ rebuild(); wake(); }); ro.observe(document.documentElement); }
+    window.addEventListener('resize', function(){ rebuild(); wake(); });
     rebuild();
     if(reduce){
       // static lattice only, no interactivity
@@ -894,12 +891,56 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       ctx.stroke();
       return;
     }
-    root.addEventListener('pointermove', onMove);
-    root.addEventListener('pointerdown', onDown);
+    window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('pointerdown', onDown, { passive: true });
     wake();
   }
-  var curtains = document.querySelectorAll('.curtain');
-  for(var c = 0; c < curtains.length; c++){ initCursorGrid(curtains[c]); }
+  var bgGrid = document.querySelector('.bg-grid');
+  if(bgGrid){ initCursorGrid(bgGrid); }
+
+  /* ---------- scroll parallax float (subtle, vertical only) ---------- */
+  (function(){
+    if(reduce) return;
+    if(window.matchMedia('(max-width: 700px)').matches) return;   // keep mobile perfectly still
+    var targets = [];
+    var specs = [
+      ['.hero', 0.55], ['.stats', 0.9], ['.wshow', 0.35],
+      ['.projects', 0.7], ['.tools', 1.15], ['.achievements', 1.15]
+    ];
+    specs.forEach(function(sp){
+      var el = document.querySelector(sp[0]);
+      if(el) targets.push({ el: el, k: sp[1], cur: 0, target: 0 });
+    });
+    if(!targets.length) return;
+    var raf = 0, running = false, lastY = -1;
+    function frame(){
+      var vh = window.innerHeight, done = true;
+      targets.forEach(function(t){
+        if(t.el.classList.contains('rv') || t.el.hasAttribute('data-rv')){
+          if(!t.el.classList.contains('in')) return;            // wait for reveal
+          if(!t.el.classList.contains('prlx')) t.el.classList.add('prlx'); // drop reveal transition
+        }
+        var r = t.el.getBoundingClientRect();
+        var d = (r.top + r.height / 2 - vh / 2) / vh;      // -1..1
+        d = Math.max(-1, Math.min(1, d));
+        t.target = -d * 26 * t.k;                          // up to ~30px, vertical only
+        var diff = t.target - t.cur;
+        if(Math.abs(diff) > 0.15){ t.cur += diff * 0.14; done = false; }
+        else { t.cur = t.target; }
+        t.el.style.transform = 'translate3d(0,' + t.cur.toFixed(2) + 'px,0)';
+      });
+      if(done){ running = false; return; }
+      raf = requestAnimationFrame(frame);
+    }
+    function kick(){
+      if(running) return;
+      running = true;
+      raf = requestAnimationFrame(frame);
+    }
+    window.addEventListener('scroll', kick, { passive: true });
+    window.addEventListener('resize', kick);
+    kick();
+  })();
 })();
 </script>
 
