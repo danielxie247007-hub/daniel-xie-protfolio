@@ -77,11 +77,13 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
   font-size:9rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
   color:var(--muted);
 }
+.curtain{grid-column:1/span 2;order:0}
 .hero{grid-column:1/span 2;order:1}
-.projects{grid-column:1/span 2;order:2}
-.wshow{grid-column:1/span 2;order:3}
-.tools{grid-column:1;order:4}
-.achievements{grid-column:2;order:5}
+.stats{grid-column:1/span 2;order:2}
+.projects{grid-column:1/span 2;order:3}
+.wshow{grid-column:1/span 2;order:4}
+.tools{grid-column:1;order:5}
+.achievements{grid-column:2;order:6}
 
 /* ---------- ABOUT ME (HERO) ---------- */
 .hero{
@@ -219,6 +221,35 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .contact-links .sep{font-size:18rem;color:var(--line)}
 .footer-marquee{overflow:hidden;border-top:1rem solid var(--line);padding:16rem 0}
 
+/* ---------- CURSOR GRID CURTAIN (above the first box) ---------- */
+.curtain{position:relative;height:200rem;border-radius:14rem;border:1rem solid var(--line);overflow:hidden;background:var(--card2);box-shadow:0 2rem 14rem rgba(23,23,23,.05)}
+.curtain canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
+.curtain .curtain-note{position:absolute;left:26rem;bottom:20rem;font-size:9rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);pointer-events:none;opacity:.8}
+
+/* ---------- STATS (rolling counters) ---------- */
+.stats{background:var(--card2);padding:40rem 48rem;display:flex;gap:20rem}
+.stat{flex:1;display:flex;flex-direction:column;gap:14rem;min-width:0}
+.stat + .stat{border-left:1rem solid var(--line);padding-left:48rem}
+.stat-row{display:flex;align-items:baseline;gap:8rem;flex-wrap:wrap}
+.stat-num{font-size:46rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1;display:inline-flex;align-items:baseline}
+.odo{display:inline-flex;align-items:baseline}
+.od-col{position:relative;height:1em;width:.66em;overflow:hidden;font-variant-numeric:tabular-nums}
+.od-track{position:absolute;left:0;top:0;display:flex;flex-direction:column;transform:translateY(0);transition:transform 1.15s cubic-bezier(.18,.82,.24,1)}
+.od-track i{display:block;height:1em;line-height:1;text-align:center;font-style:normal}
+.stat-sfx{font-size:30rem;font-weight:800;color:var(--accent);letter-spacing:-.02em;line-height:1}
+.stat-cap{font-size:10.5rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- SCROLL REVEAL ---------- */
+.rv,[data-rv]{opacity:0;transform:translateY(30rem)}
+html.motion-pending .rv,[data-rv]{opacity:0;transform:translateY(30rem)}
+html.entrance-run .rv,html.entrance-run [data-rv]{animation:none !important;opacity:0;transform:translateY(30rem)}
+.rv.in,[data-rv].in{opacity:1;transform:none;transition:opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion: reduce){
+  .rv,[data-rv]{opacity:1;transform:none;transition:none}
+  .od-track{transition:none}
+}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
 /* ---------- ENTRANCE ANIMATION ---------- */
 @keyframes panel-settle{0%{opacity:0;transform:translateY(12rem) scale(.988);clip-path:inset(3% round 22rem)}62%{opacity:1}100%{opacity:1;transform:none;clip-path:inset(0)}}
 @keyframes type-unmask{0%{opacity:0;transform:translateY(16rem);clip-path:inset(0 0 96% 0)}100%{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
@@ -238,7 +269,11 @@ html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04
 html.entrance-run .projects{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .12s backwards}
 html.entrance-run .tools{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .18s backwards}
 html.entrance-run .achievements{animation:panel-settle .68s cubic-bezier(.16,1,.3,1) .24s backwards}
-html.entrance-run .wshow{animation:panel-settle .8s cubic-bezier(.16,1,.3,1) .16s backwards}
+html.entrance-run .curtain{animation:content-rise .6s cubic-bezier(.16,1,.3,1) .02s backwards}
+html.entrance-run .stats{animation:panel-settle .72s cubic-bezier(.16,1,.3,1) .12s backwards}
+html.entrance-run .stats .stat-num{animation:content-rise .6s cubic-bezier(.16,1,.3,1) .5s backwards}
+html.entrance-run .wshow{animation:none}
+
 html.entrance-run .wshow .ws-head .w-badge{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .32s backwards}
 html.entrance-run .wshow .ws-head h2{animation:type-unmask .66s cubic-bezier(.22,1,.36,1) .38s backwards}
 html.entrance-run .wshow .ws-head p{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .5s backwards}
@@ -281,13 +316,19 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .topbar .tb-l{font-size:10.5rem}
   .topbar .tb-r{font-size:8.5rem;gap:8rem;flex-wrap:wrap}
   .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:24rem;padding-bottom:80rem}
-  .hero,.projects,.tools,.achievements,.wshow{grid-column:1}
+  .curtain,.hero,.stats,.projects,.tools,.achievements,.wshow{grid-column:1}
+  .curtain{height:150rem}
+  .stats{flex-direction:column;gap:26rem;padding:30rem 24rem}
+  .stat + .stat{border-left:0;border-top:1rem solid var(--line);padding-left:0;padding-top:26rem}
+  .stat-num{font-size:34rem}
+  .stat-sfx{font-size:22rem}
   .hero{padding:30rem 24rem 28rem}
   .hero h1{font-size:32rem}
   .hero .body{font-size:13.5rem}
   .hero .body-2{font-size:12.5rem}
 
   html.motion-pending .card{opacity:1;visibility:visible}
+  html.motion-pending .rv,[data-rv]{opacity:0;transform:translateY(30rem)}
   html.motion-pending .hero{opacity:0;visibility:hidden}
   html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04s backwards}
 
@@ -319,6 +360,12 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 </header>
 <div class="stage" role="main" aria-label="Daniel Xie — creative portfolio">
 
+  <!-- CURSOR GRID CURTAIN -->
+  <section class="curtain" aria-hidden="true">
+    <canvas></canvas>
+    <span class="curtain-note">hover &amp; click — the grid listens</span>
+  </section>
+
   <!-- ABOUT ME -->
   <section class="card hero" aria-label="About me">
     <div class="k">About Me</div>
@@ -329,8 +376,24 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
     <div class="tags"><span>Video Editing</span><span>Film</span><span>Game Making</span><span>Minecraft</span></div>
   </section>
 
+  <!-- STATS -->
+  <section class="card stats" aria-label="Reach: highest single-video views 200 thousand plus, followers two thousand plus">
+    <div class="stat">
+      <div class="stat-row">
+        <span class="stat-num"><span class="odo" data-value="200" aria-hidden="true"></span><span class="stat-sfx">k+</span></span>
+      </div>
+      <div class="stat-cap">Highest views · one video</div>
+    </div>
+    <div class="stat">
+      <div class="stat-row">
+        <span class="stat-num"><span class="odo" data-value="2000" aria-hidden="true"></span><span class="stat-sfx">+</span></span>
+      </div>
+      <div class="stat-cap">Followers · all channels</div>
+    </div>
+  </section>
+
   <!-- 06 / EDITING TOOLS -->
-  <section class="card tools" aria-label="Editing tools">
+  <section class="card tools rv" aria-label="Editing tools">
     <div class="k">06 / Editing Tools</div>
     <div class="tool-row">
       <div class="tool-mark tm-capcut">剪映</div>
@@ -398,13 +461,13 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   <!-- 05 / MY EDITS — SHOWN DIRECTLY ON THE HOMEPAGE -->
   <section class="card wshow" aria-label="My edits — selected video work">
     <div class="wshow-ctr">
-    <div class="ws-head">
+    <div class="ws-head" data-rv>
       <span class="w-badge">My edits</span>
       <h2>Selected video <span class="r">edits</span></h2>
       <p>Trailers, fan edits &amp; projects I've cut — tap a clip to play.</p>
     </div>
 
-    <div class="ws-group">
+    <div class="ws-group" data-rv>
       <div class="w-label"><span class="w-num">01</span> Marvel</div>
       <div class="video-grid">
         <figure class="video-card">
@@ -428,7 +491,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       </div>
     </div>
 
-    <div class="ws-group">
+    <div class="ws-group" data-rv>
       <div class="w-label"><span class="w-num">02</span> Spider-Man</div>
       <div class="video-grid">
         <figure class="video-card">
@@ -452,7 +515,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       </div>
     </div>
 
-    <div class="ws-group">
+    <div class="ws-group" data-rv>
       <div class="w-label"><span class="w-num">03</span> Cinematic Trailer</div>
       <div class="video-grid">
         <figure class="video-card">
@@ -479,7 +542,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   </section>
 
   <!-- 04 / ACHIEVEMENTS -->
-  <section class="card achievements" aria-label="Achievements">
+  <section class="card achievements rv" aria-label="Achievements">
     <div class="k">04 / Achievements</div>
     <div class="ach"><div class="a-k">Debate</div><div class="a-v">National Champion</div></div>
     <div class="ach"><div class="a-k">Best Debater</div><div class="a-v">Overall Best Debater 2025</div></div>
@@ -491,7 +554,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 
 <!-- FOOTER -->
 <footer class="footer" aria-label="Contact">
-  <div class="footer-inner">
+  <div class="footer-inner" data-rv>
     <div class="k">Contact</div>
     <div class="contact-links">
       <a href="mailto:daniel.xie247007@gmail.com">daniel.xie247007@gmail.com</a>
@@ -603,5 +666,242 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   });
 })();
 </script>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- scroll reveal ---------- */
+  function revealTargets(){ return document.querySelectorAll('.rv, [data-rv]'); }
+  function revealAllNow(){
+    revealTargets().forEach(function(el){ if(!el.classList.contains('in')) el.classList.add('in'); });
+  }
+  if(reduce || !('IntersectionObserver' in window)){
+    revealAllNow();
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -8% 0px' });
+    revealTargets().forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---------- rolling odometer counters ---------- */
+  function buildOdometer(el, value){
+    String(value).split('').forEach(function(ch){
+      var col = document.createElement('span');
+      col.className = 'od-col';
+      var tr = document.createElement('span');
+      tr.className = 'od-track';
+      for(var i = 0; i < 10; i++){
+        var d = document.createElement('i');
+        d.textContent = String(i);
+        tr.appendChild(d);
+      }
+      col.appendChild(tr);
+      col.setAttribute('data-target', ch);
+      el.appendChild(col);
+    });
+  }
+  function setDigits(el){
+    var cols = el.querySelectorAll('.od-col');
+    for(var i = 0; i < cols.length; i++){
+      cols[i].firstElementChild.style.transform = 'translateY(-' + cols[i].getAttribute('data-target') + 'em)';
+    }
+  }
+  function startOdometer(el){
+    var v = parseInt(el.getAttribute('data-value'), 10);
+    if(!isFinite(v)) return;
+    if(el.getAttribute('data-built')) return;
+    el.setAttribute('data-built', '1');
+    buildOdometer(el, v);
+    if(reduce){ setDigits(el); return; }
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){ setDigits(el); });
+    });
+  }
+  function observeCounters(){
+    if(reduce){ document.querySelectorAll('.odo').forEach(startOdometer); return; }
+    if(!('IntersectionObserver' in window)){ document.querySelectorAll('.odo').forEach(startOdometer); return; }
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ startOdometer(en.target); cio.unobserve(en.target); }
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('.odo').forEach(function(el){ cio.observe(el); });
+  }
+  observeCounters();
+
+  /* ---------- CursorGrid (vanilla port of React Bits CursorGrid) ---------- */
+  var FALLOFF = {
+    linear: function(t){ return t; },
+    smooth: function(t){ return t * t * (3 - 2 * t); },
+    sharp: function(t){ return t * t * t; }
+  };
+  function hexToRgb(hex){
+    var h = (hex || '').replace('#', '');
+    if(h.length === 3){ h = h.split('').map(function(c){ return c + c; }).join(''); }
+    var num = parseInt(h.slice(0, 6), 16);
+    return [(num >> 16) & 255, (num >> 8) & 255, num & 255];
+  }
+  function initCursorGrid(root){
+    var canvas = root.querySelector('canvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var P = {
+      cellSize: 46, color: '#3f3d38', radius: 130, falloff: 'smooth',
+      holdTime: 380, fadeDuration: 760, lineWidth: 1,
+      maxOpacity: 0.5, fillOpacity: 0, gridOpacity: 0.15, cellRadius: 0,
+      clickPulse: true, pulseSpeed: 520
+    };
+    var cols = 0, rows = 0, offX = 0, offY = 0, w = 0, h = 0;
+    var alphas = new Float32Array(0), touched = new Float64Array(0);
+    var pulses = [], raf = 0, running = false, lastFrame = 0;
+
+    function rebuild(){
+      w = root.offsetWidth; h = root.offsetHeight;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(h * dpr));
+      canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(w / P.cellSize) + 1;
+      rows = Math.ceil(h / P.cellSize) + 1;
+      offX = (w - cols * P.cellSize) / 2;
+      offY = (h - rows * P.cellSize) / 2;
+      alphas = new Float32Array(cols * rows);
+      touched = new Float64Array(cols * rows);
+    }
+    function cellCenter(i){
+      return [ offX + (i % cols) * P.cellSize + P.cellSize / 2,
+               offY + Math.floor(i / cols) * P.cellSize + P.cellSize / 2 ];
+    }
+    function energize(x, y, boost){
+      var r = Math.max(P.radius, 1);
+      var ease = FALLOFF[P.falloff] || FALLOFF.linear;
+      var now = performance.now();
+      var minCol = Math.max(0, Math.floor((x - r - offX) / P.cellSize));
+      var maxCol = Math.min(cols - 1, Math.floor((x + r - offX) / P.cellSize));
+      var minRow = Math.max(0, Math.floor((y - r - offY) / P.cellSize));
+      var maxRow = Math.min(rows - 1, Math.floor((y + r - offY) / P.cellSize));
+      for(var cRow = minRow; cRow <= maxRow; cRow++){
+        for(var cCol = minCol; cCol <= maxCol; cCol++){
+          var i = cRow * cols + cCol;
+          var c = cellCenter(i);
+          var dist = Math.hypot(c[0] - x, c[1] - y);
+          if(dist > r) continue;
+          var level = ease(1 - dist / r) * P.maxOpacity * (boost || 1);
+          if(level > alphas[i]){ alphas[i] = level; touched[i] = now; }
+          else if(level > 0){ touched[i] = now; }
+        }
+      }
+    }
+    function draw(now){
+      var dt = Math.min(now - lastFrame, 50); lastFrame = now;
+      ctx.clearRect(0, 0, w, h);
+      var rgb = hexToRgb(P.color);
+      var cr = rgb[0], cg = rgb[1], cb = rgb[2];
+      if(P.gridOpacity > 0){
+        ctx.strokeStyle = 'rgba(' + cr + ',' + cg + ',' + cb + ',' + P.gridOpacity + ')';
+        ctx.lineWidth = 1; ctx.beginPath();
+        for(var cCol = 0; cCol <= cols; cCol++){
+          var gx = Math.round(offX + cCol * P.cellSize) + 0.5;
+          ctx.moveTo(gx, 0); ctx.lineTo(gx, h);
+        }
+        for(var cRow = 0; cRow <= rows; cRow++){
+          var gy = Math.round(offY + cRow * P.cellSize) + 0.5;
+          ctx.moveTo(0, gy); ctx.lineTo(w, gy);
+        }
+        ctx.stroke();
+      }
+      var pi, p;
+      for(pi = pulses.length - 1; pi >= 0; pi--){
+        p = pulses[pi];
+        var age = (now - p.t0) / 1000;
+        var ringR = age * P.pulseSpeed;
+        if(ringR > Math.hypot(w, h)){ pulses.splice(pi, 1); continue; }
+        var band = P.cellSize;
+        var minCol = Math.max(0, Math.floor((p.x - ringR - band - offX) / P.cellSize));
+        var maxCol = Math.min(cols - 1, Math.floor((p.x + ringR + band - offX) / P.cellSize));
+        var minRow = Math.max(0, Math.floor((p.y - ringR - band - offY) / P.cellSize));
+        var maxRow = Math.min(rows - 1, Math.floor((p.y + ringR + band - offY) / P.cellSize));
+        for(var cRow2 = minRow; cRow2 <= maxRow; cRow2++){
+          for(var cCol2 = minCol; cCol2 <= maxCol; cCol2++){
+            var i2 = cRow2 * cols + cCol2;
+            var c2 = cellCenter(i2);
+            var d2 = Math.hypot(c2[0] - p.x, c2[1] - p.y);
+            if(Math.abs(d2 - ringR) < band / 2 && P.maxOpacity > alphas[i2]){ alphas[i2] = P.maxOpacity; touched[i2] = now; }
+          }
+        }
+      }
+      var anyVisible = pulses.length > 0;
+      var fadeStep = dt / Math.max(P.fadeDuration, 16);
+      var half = P.cellSize / 2;
+      for(var i = 0; i < alphas.length; i++){
+        var a = alphas[i];
+        if(a <= 0) continue;
+        if(now - touched[i] > P.holdTime){
+          a = Math.max(0, a - fadeStep); alphas[i] = a;
+          if(a <= 0) continue;
+        }
+        anyVisible = true;
+        var c3 = cellCenter(i);
+        var grad = ctx.createRadialGradient(c3[0], c3[1], half * 0.1, c3[0], c3[1], P.cellSize);
+        grad.addColorStop(0, 'rgba(' + cr + ',' + cg + ',' + cb + ',' + a + ')');
+        grad.addColorStop(1, 'rgba(' + cr + ',' + cg + ',' + cb + ',0)');
+        var x = c3[0] - half + 0.5, y = c3[1] - half + 0.5, s = P.cellSize - 1;
+        ctx.beginPath();
+        if(P.cellRadius > 0){ ctx.roundRect(x, y, s, s, P.cellRadius); }
+        else { ctx.rect(x, y, s, s); }
+        if(P.fillOpacity > 0){ ctx.fillStyle = 'rgba(' + cr + ',' + cg + ',' + cb + ',' + (a * P.fillOpacity) + ')'; ctx.fill(); }
+        ctx.strokeStyle = grad; ctx.lineWidth = P.lineWidth; ctx.stroke();
+      }
+      if(anyVisible){ raf = requestAnimationFrame(draw); }
+      else { running = false; if(P.gridOpacity <= 0) ctx.clearRect(0, 0, w, h); }
+    }
+    function wake(){
+      if(running) return;
+      running = true; lastFrame = performance.now();
+      raf = requestAnimationFrame(draw);
+    }
+    function toLocal(e){
+      var rect = canvas.getBoundingClientRect();
+      return [e.clientX - rect.left, e.clientY - rect.top];
+    }
+    function onMove(e){ var p = toLocal(e); energize(p[0], p[1]); wake(); }
+    function onDown(e){
+      if(!P.clickPulse) return;
+      var p = toLocal(e); pulses.push({x: p[0], y: p[1], t0: performance.now()}); wake();
+    }
+    var ro = null;
+    if(window.ResizeObserver){ ro = new ResizeObserver(function(){ rebuild(); wake(); }); ro.observe(root); }
+    rebuild();
+    if(reduce){
+      // static lattice only, no interactivity
+      var rgb = hexToRgb(P.color);
+      ctx.strokeStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',' + P.gridOpacity + ')';
+      ctx.lineWidth = 1; ctx.beginPath();
+      for(var cCol = 0; cCol <= cols; cCol++){
+        var gx = Math.round(offX + cCol * P.cellSize) + 0.5;
+        ctx.moveTo(gx, 0); ctx.lineTo(gx, h);
+      }
+      for(var cRow = 0; cRow <= rows; cRow++){
+        var gy = Math.round(offY + cRow * P.cellSize) + 0.5;
+        ctx.moveTo(0, gy); ctx.lineTo(w, gy);
+      }
+      ctx.stroke();
+      return;
+    }
+    root.addEventListener('pointermove', onMove);
+    root.addEventListener('pointerdown', onDown);
+    wake();
+  }
+  var curtains = document.querySelectorAll('.curtain');
+  for(var c = 0; c < curtains.length; c++){ initCursorGrid(curtains[c]); }
+})();
+</script>
+
 </body>
 </html>
