@@ -84,9 +84,8 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .hero{grid-column:1/span 2;order:1}
 .stats{grid-column:1/span 2;order:2}
 .wshow{grid-column:1/span 2;order:3}
-.projects{grid-column:1/span 2;order:4}
-.tools{grid-column:1;order:5}
-.achievements{grid-column:2;order:6}
+.channels{grid-column:1;order:4}
+.achievements{grid-column:2;order:5}
 
 /* ---------- ABOUT ME (HERO) ---------- */
 .hero{
@@ -128,57 +127,16 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
   color:var(--ink);opacity:.045;user-select:none;will-change:transform}
 .hero .ghost{opacity:.05}
 .hero .tags span{font-size:9rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:6rem 13rem;border:1rem solid var(--line);border-radius:999rem}
-/* ---------- 06 / EDITING TOOLS ---------- */
-.tools{
-  background:var(--card2);
-  padding:22rem 22rem 18rem;
-  display:flex;flex-direction:column;
-}
-.tools .k{margin-bottom:14rem}
-.tool-row{display:flex;align-items:center;gap:10rem;padding:9rem 0;border-bottom:1rem solid var(--line)}
-.tool-row:last-child{border-bottom:0}
-.tool-mark{width:34rem;height:34rem;border-radius:8rem;display:flex;align-items:center;justify-content:center;flex:none;font-weight:800;font-size:11rem;letter-spacing:-.02em;position:relative;overflow:hidden;background:var(--ink);color:#fff}
-.tool-mark svg{width:17rem;height:17rem}
-.tool-info b{display:block;font-size:12rem;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
-.tool-info span{display:block;font-size:8.5rem;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:2rem}
-.tm-capcut{background:var(--ink);color:#fff}
-.tm-capcut svg{color:#fff}
-.tm-fcp{background:var(--ink);color:#fff}
-.tm-resolve{background:var(--ink);color:#fff}
-.tm-pr{background:var(--ink);color:#fff}
-.tm-ae{background:var(--ink);color:#fff}
-
-/* ---------- 03 / PROJECTS ---------- */
-.projects{
+/* ---------- 04 / CHANNELS ---------- */
+.channels{
   background:var(--card);
   padding:24rem 20rem 20rem;
   display:flex;flex-direction:column;
 }
-.projects .k{margin-bottom:16rem}
-.proj{display:flex;align-items:center;gap:12rem;padding:14rem 12rem;border:1rem solid var(--line);border-radius:12rem;margin-bottom:9rem;transition:border-color .3s ease, transform .3s ease}
-.proj:hover{border-color:var(--ink);transform:translateY(-2rem)}
-.proj-num{font-size:10rem;font-weight:700;letter-spacing:.05em;color:var(--accent);flex:none;width:22rem}
-.proj-body{flex:1;min-width:0}
-.proj-body b{display:block;font-size:14rem;font-weight:700;letter-spacing:-.01em;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.proj-body span{display:block;font-size:9.5rem;font-weight:500;letter-spacing:.04em;color:var(--muted);margin-top:3rem;text-transform:uppercase}
-.proj .arr{width:14rem;height:14rem;flex:none;color:var(--muted);transition:transform .3s ease, color .3s ease}
-.proj:hover .arr{transform:translateX(3rem);color:var(--accent)}
-.proj.dim{opacity:.55;cursor:default}
-.proj.dim:hover{border-color:var(--line);transform:none}
-.btn-row{display:flex;gap:7rem;margin:6rem 0 16rem}
-.btn{flex:1;height:36rem;display:inline-flex;align-items:center;justify-content:center;font-size:10rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border:1rem solid var(--line);border-radius:999rem;transition:background .3s ease, color .3s ease, border-color .3s ease, transform .3s ease}
-.btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2rem)}
-.games{border:1rem solid var(--line);border-radius:12rem;padding:16rem;margin-top:30rem;background:var(--card2)}
-.games-head{display:flex;align-items:center;gap:12rem;margin-bottom:14rem}
-.games-head .gp{width:40rem;height:40rem;border-radius:10rem;background:rgba(232,93,42,.12);display:flex;align-items:center;justify-content:center;color:var(--accent);flex:none}
-.games-head .gp svg{width:22rem;height:22rem}
-.games-head .g-k{display:block;font-size:8.5rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:3rem}
-.games-head b{display:block;font-size:16rem;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
-.games-head .g-sub{display:block;font-size:10.5rem;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:4rem}
-.dl{display:flex;align-items:center;justify-content:space-between;gap:10rem;height:38rem;width:50%;max-width:680rem;min-width:0;padding:0 14rem;border-radius:999rem;background:var(--accent);color:#fff;font-size:11rem;font-weight:700;letter-spacing:.02em;transition:transform .3s ease, box-shadow .3s ease}
-.dl:hover{transform:translateY(-2rem);box-shadow:0 8rem 22rem rgba(232,93,42,.3)}
-.dl .sz{font-size:8.5rem;font-weight:600;color:rgba(255,255,255,.8)}
-.dl .arr{width:13rem;height:13rem}
+.channels .k{margin-bottom:16rem}
+.ch-note{font-size:12rem;line-height:1.75;color:var(--muted);margin:0 12rem 20rem}
+.ch-note b{color:var(--accent);font-weight:800;letter-spacing:.02em}
+.ch-note .hd{color:var(--ink)}
 
 /* ---------- 04 / ACHIEVEMENTS ---------- */
 .achievements{
@@ -228,7 +186,7 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 
 /* Channel CTAs (stacked vertically; each keeps ~half the page width) */
 .channel-row{display:flex;flex-direction:column;align-items:flex-start;gap:16rem}
-.ch-btn{display:inline-flex;align-items:center;justify-content:center;gap:10rem;height:62rem;width:50%;max-width:680rem;min-width:0;padding:0 22rem;border-radius:999rem;font-size:16rem;font-weight:800;letter-spacing:-.01em;transition:transform .3s ease, box-shadow .3s ease}
+.ch-btn{display:inline-flex;align-items:center;justify-content:center;gap:10rem;height:62rem;width:100%;max-width:680rem;min-width:0;padding:0 22rem;border-radius:999rem;font-size:16rem;font-weight:800;letter-spacing:-.01em;transition:transform .3s ease, box-shadow .3s ease}
 .ch-btn .arr{width:17rem;height:17rem;flex:none;transition:transform .3s ease}
 .ch-btn:hover{transform:translateY(-3rem)}
 .ch-btn:hover .arr{transform:translate(3rem,-2rem)}
@@ -236,9 +194,6 @@ button{font-family:inherit;border:none;background:none;color:inherit;cursor:poin
 .ch-red:hover{box-shadow:0 10rem 26rem rgba(232,93,42,.35)}
 .ch-ig{background:var(--ink);color:#fff}
 .ch-ig:hover{box-shadow:0 10rem 26rem rgba(23,23,23,.28)}
-
-.btn.dim{opacity:.5;cursor:default}
-.btn.dim:hover{background:none;color:var(--ink);border-color:var(--line);transform:none}
 
 /* ---------- FOOTER (Contact) ---------- */
 .footer{position:relative;z-index:1;border-top:1rem solid var(--line);margin-top:20rem}
@@ -290,8 +245,6 @@ html.entrance-run .rv,html.entrance-run [data-rv]{animation:none !important;opac
 .video-card:hover .watch-hint{opacity:1;transform:none}
 .ch-btn:hover{transform:translateY(-3rem) scale(1.02)}
 .ch-btn:hover .arr{transform:translate(3rem,-2rem)}
-.dl:hover{transform:translateY(-2rem) scale(1.02);box-shadow:0 10rem 26rem rgba(232,93,42,.32)}
-.proj:hover{transform:translateY(-2rem)}
 .wshow{overflow:hidden}
 
 /* ---------- CINEMATIC ENDING ---------- */
@@ -322,9 +275,8 @@ html.motion-pending .card{opacity:0;visibility:hidden}
 html.entrance-run .card{will-change:opacity,transform,clip-path}
 html.entrance-run .topbar{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .02s backwards}
 html.entrance-run .hero{animation:panel-settle .82s cubic-bezier(.16,1,.3,1) .04s backwards}
-html.entrance-run .projects{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .12s backwards}
-html.entrance-run .tools{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .18s backwards}
-html.entrance-run .achievements{animation:panel-settle .68s cubic-bezier(.16,1,.3,1) .24s backwards}
+html.entrance-run .channels{animation:panel-settle .7s cubic-bezier(.16,1,.3,1) .12s backwards}
+html.entrance-run .achievements{animation:panel-settle .68s cubic-bezier(.16,1,.3,1) .18s backwards}
 html.entrance-run .stats{animation:panel-settle .72s cubic-bezier(.16,1,.3,1) .12s backwards}
 html.entrance-run .stats .stat-num{animation:content-rise .6s cubic-bezier(.16,1,.3,1) .5s backwards}
 html.entrance-run .wshow{animation:none}
@@ -344,13 +296,9 @@ html.entrance-run .hero .body{animation:content-rise .5s cubic-bezier(.16,1,.3,1
 html.entrance-run .hero .body-2{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .6s backwards}
 html.entrance-run .hero .tags{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .7s backwards}
 
-html.entrance-run .projects .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .32s backwards}
-html.entrance-run .projects .proj{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .42s backwards}
-html.entrance-run .projects .btn-row{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .56s backwards}
-html.entrance-run .projects .games{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .66s backwards}
-
-html.entrance-run .tools .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .38s backwards}
-html.entrance-run .tools .tool-row{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .46s backwards}
+html.entrance-run .channels .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .32s backwards}
+html.entrance-run .channels .ch-note{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .42s backwards}
+html.entrance-run .channels .channel-row{animation:content-rise .5s cubic-bezier(.16,1,.3,1) .52s backwards}
 
 html.entrance-run .achievements .k{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .44s backwards}
 html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.16,1,.3,1) .5s backwards}
@@ -359,7 +307,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 @media (min-width:701px) and (max-width:1040px) and (max-aspect-ratio:3/2){
   .topbar-inner{width:95vw}
   .stage{width:95vw}
-  .tools{grid-column:1/span 2}
+  .channels{grid-column:1/span 2}
   .achievements{grid-column:1/span 2}
 }
 
@@ -371,7 +319,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .topbar .tb-l{font-size:10.5rem}
   .topbar .tb-r{font-size:8.5rem;gap:8rem;flex-wrap:wrap}
   .stage{width:375rem;margin:0 auto;grid-template-columns:1fr;row-gap:24rem;padding-bottom:80rem}
-  .hero,.stats,.projects,.tools,.achievements,.wshow{grid-column:1}
+  .hero,.stats,.channels,.achievements,.wshow{grid-column:1}
   .stats{flex-direction:column;gap:26rem;padding:30rem 24rem}
   .stat + .stat{border-left:0;border-top:1rem solid var(--line);padding-left:0;padding-top:26rem}
   .stat-num{font-size:34rem}
@@ -394,7 +342,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   .ws-group{margin-top:42rem}
   .channel-row{flex-direction:column;gap:14rem}
   .ch-btn{flex:none;width:100%;height:58rem}
-  .dl{width:100%;max-width:none}
   .footer-inner{width:375rem;padding:36rem 20rem 30rem}
   .contact-links{gap:12rem}
   .contact-links a{font-size:15rem}
@@ -439,7 +386,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
     <div class="k">About Me</div>
     <h1>Daniel <span class="r">Xie</span></h1>
     <div class="role-line">Video Editor · Filmmaker</div>
-    <div class="body">I'm Daniel Xie, a Year 9 student with a strong interest in video editing and filmmaking. Most of my creative energy goes into editing, and I'm currently getting used to Adobe After Effects and exploring new ways to improve my work.</div>
+    <div class="body">I'm Daniel Xie, a Year 9 GOS student with a strong interest in video editing and filmmaking. Most of my creative energy goes into editing, and I'm currently getting used to Adobe After Effects and exploring new ways to improve my work.</div>
     <div class="body body-2">I also enjoy things like drama, debate, game making, and Minecraft, but video editing is where I spend most of my time and where I'm most interested in developing my skills.</div>
     <div class="tags"><span>Video Editing</span><span>Film</span><span>Game Making</span><span>Minecraft</span></div>
     <div class="scroll-cue" aria-hidden="true">scroll</div>
@@ -548,47 +495,10 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   </section>
 
 
-  <!-- 06 / EDITING TOOLS -->
-  <section class="card tools rv" aria-label="Editing tools">
-    <div class="k">06 / Editing Tools</div>
-    <div class="tool-row">
-      <div class="tool-mark tm-capcut">剪映</div>
-      <div class="tool-info"><b>CapCut / 剪映</b><span>Quick cuts &amp; social edits</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-fcp">FCP</div>
-      <div class="tool-info"><b>Final Cut Pro</b><span>Apple editing suite</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-resolve"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 12V3a9 9 0 0 1 7.8 4.5z"/><path d="M12 12l7.8 4.5A9 9 0 0 1 12 21z"/></svg></div>
-      <div class="tool-info"><b>DaVinci Resolve</b><span>Color &amp; finishing</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-pr">Pr</div>
-      <div class="tool-info"><b>Premiere Pro</b><span>Timeline &amp; assembly</span></div>
-    </div>
-    <div class="tool-row">
-      <div class="tool-mark tm-ae">Ae</div>
-      <div class="tool-info"><b>After Effects</b><span>Motion &amp; FX</span></div>
-    </div>
-  </section>
-
-  <!-- 03 / PROJECTS -->
-  <section class="card projects" id="projects" aria-label="Selected projects">
-    <div class="k">02 / Selected Projects</div>
-    <div class="proj dim"><span class="proj-num">01</span><span class="proj-body"><b>From 1 to Infinity Trailer Edit</b><span>Film / Editing</span></span></div>
-    <a class="proj" href="#games" aria-label="Cave Zero — Game / Construct">
-      <span class="proj-num">02</span>
-      <span class="proj-body"><b>Cave Zero</b><span>Game / Construct</span></span>
-      <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-    </a>
-    <div class="proj dim"><span class="proj-num">03</span><span class="proj-body"><b>Miles Morales Edits</b><span>Film / Editing</span></span></div>
-    <div class="proj dim"><span class="proj-num">04</span><span class="proj-body"><b>MARVEL Edits</b><span>Film / Editing</span></span></div>
-    <div class="btn-row">
-      <span class="btn dim">Film</span>
-      <span class="btn dim">Editing</span>
-      <span class="btn dim">Video</span>
-    </div>
+  <!-- 04 / CHANNELS -->
+  <section class="card channels" id="channels" aria-label="Channels — Daniel_Mn on every platform">
+    <div class="k">04 / Channels</div>
+    <p class="ch-note">You can find me on <b class="hd">WeChat Channels 视频号 · RedNote · Bilibili · Douyin 抖音 · Instagram · YouTube</b> — same handle everywhere: <b>Daniel_Mn</b>.</p>
     <div class="channel-row">
       <a class="ch-btn ch-red" href="https://www.xiaohongshu.com/user/profile/60e8889c0000000001007d7f?xsec_token=ABlpSW9gySnKkTRyZNYLyhbuavWjuBgCa6MsOAGAN6rMw%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer">RedNote channel
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
@@ -597,31 +507,17 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
         <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
       </a>
     </div>
-    <div class="games" id="games">
-      <div class="games-head">
-        <div class="gp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7.5h11a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-11a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3z"/><path d="M7.5 11v2.5M6.25 12.25h2.5"/><circle cx="15.5" cy="12" r=".7" fill="currentColor"/><circle cx="17.7" cy="13.8" r=".7" fill="currentColor"/></svg></div>
-        <div>
-          <span class="g-k">Games I Made</span>
-          <b>Cave Zero</b>
-          <span class="g-sub">My low-pixel parkour game</span>
-        </div>
-      </div>
-      <a class="dl" href="Cave-Zero.c3p" download aria-label="Download Cave Zero game, 6.5 megabytes">
-        <span>Download Game</span>
-        <span class="sz">6.5 MB</span>
-        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12M6 11l6 6 6-6"/></svg>
-      </a>
-    </div>
   </section>
 
 
   <!-- 04 / ACHIEVEMENTS -->
   <section class="card achievements rv" aria-label="Achievements">
-    <div class="k">04 / Achievements</div>
-    <div class="ach"><div class="a-k">Debate</div><div class="a-v">National Champion</div></div>
+    <div class="k">05 / Achievements</div>
+    <div class="ach"><div class="a-k">Debate</div><div class="a-v">National Champion 2025</div></div>
     <div class="ach"><div class="a-k">Best Debater</div><div class="a-v">Overall Best Debater 2025</div></div>
-    <div class="ach"><div class="a-k">Drama</div><div class="a-v">Overall Best Leading Actor</div></div>
-    <div class="ach"><div class="a-k">Badminton</div><div class="a-v">School Team</div></div>
+    <div class="ach"><div class="a-k">Drama</div><div class="a-v">Overall Best Leading Actor 2026</div></div>
+    <div class="ach"><div class="a-k">Science</div><div class="a-v">GOS Science Photography Decathlon · 1 Gold 1 Silver</div></div>
+    <div class="ach"><div class="a-k">Decathlon</div><div class="a-v">SuperNova 2026</div></div>
   </section>
 
 </div>
@@ -692,9 +588,6 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
 </script>
 <script>
 (function(){
-  var cave = document.querySelector('a[href="#games"]');
-  if(cave){ cave.addEventListener('click', function(e){ var g = document.getElementById('games'); if(g && g.scrollIntoView){ e.preventDefault(); g.scrollIntoView({behavior:'smooth', block:'nearest'}); } }); }
-
   // video click-to-play (first frame stays until tapped)
   document.querySelectorAll('.video-card').forEach(function(card){
     var v = card.querySelector('video');
@@ -990,7 +883,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
   (function(){
     var ghosts = [
       ['.hero','01'], ['.stats','02'], ['.wshow','03'],
-      ['.projects','04'], ['.tools','05'], ['.achievements','06']
+      ['.channels','04'], ['.achievements','05']
     ];
     ghosts.forEach(function(g){
       var el = document.querySelector(g[0]);
@@ -1033,8 +926,7 @@ html.entrance-run .achievements .ach{animation:content-rise .46s cubic-bezier(.1
       { sel:'.hero', sk:0.55, mk:1.0, hero:true },
       { sel:'.stats', sk:0.9,  mk:0.8 },
       { sel:'.wshow', sk:0.35, mk:0.5 },
-      { sel:'.projects', sk:0.7, mk:0.9 },
-      { sel:'.tools', sk:1.15, mk:0.7 },
+      { sel:'.channels', sk:0.7, mk:0.9 },
       { sel:'.achievements', sk:1.15, mk:0.7 }
     ];
     var items = [];
